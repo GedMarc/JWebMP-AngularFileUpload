@@ -61,11 +61,11 @@
     <orderEntry type="library" name="Maven: javax.cache:cache-api:1.0.0" level="project" />
     <orderEntry type="module" module-name="log-master" />
     <orderEntry type="module" module-name="jwebswing-interception" />
-    <orderEntry type="library" name="Maven: javax:javaee-web-api:7.0" level="project" />
     <orderEntry type="module" module-name="jwebswing-jquery-ui" />
     <orderEntry type="module" module-name="jwebswing-easing-effects" />
     <orderEntry type="module" module-name="jwebswing-globalize" />
     <orderEntry type="module" module-name="jwebswing-jquery-ui-themes" />
+    <orderEntry type="module" module-name="jwebswing-bootstrap" />
     <orderEntry type="module" module-name="jwebswing" scope="TEST" production-on-test="" />
   </component>
 </module>

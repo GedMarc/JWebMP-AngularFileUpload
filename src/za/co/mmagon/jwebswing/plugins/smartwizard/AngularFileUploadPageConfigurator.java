@@ -1,8 +1,12 @@
-package za.co.mmagon.jwebswing.plugins.angularfileuploader;
+package za.co.mmagon.jwebswing.plugins.smartwizard;
 
 import com.google.inject.Singleton;
 import za.co.mmagon.jwebswing.Page;
 import za.co.mmagon.jwebswing.PageConfigurator;
+import za.co.mmagon.jwebswing.base.html.Div;
+import za.co.mmagon.jwebswing.base.html.H3;
+import za.co.mmagon.jwebswing.base.html.Link;
+import za.co.mmagon.jwebswing.base.html.List;
 import za.co.mmagon.jwebswing.plugins.PluginInformation;
 
 @PluginInformation(pluginName = "Angular File Upload",
@@ -27,6 +31,11 @@ import za.co.mmagon.jwebswing.plugins.PluginInformation;
 public class AngularFileUploadPageConfigurator extends PageConfigurator
 {
 	/**
+	 * The div for the gallery
+	 */
+	private Div galleryDiv;
+	
+	/**
 	 * Configures the page for this component
 	 */
 	public AngularFileUploadPageConfigurator()
@@ -37,8 +46,31 @@ public class AngularFileUploadPageConfigurator extends PageConfigurator
 	@Override
 	public Page configure(Page page)
 	{
-		if(!page.isConfigured())
+		if (!page.isConfigured())
 		{
+			page.getBody().add(getGalleryDiv());
+			
+			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.TemplatesReference.getJavaScriptReference());
+			page.getBody().addCssReference(AngularFileUploadReferencePool.TemplatesReference.getCssReference());
+			
+			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.LoadImageJCropReference.getJavaScriptReference());
+			page.getBody().addCssReference(AngularFileUploadReferencePool.LoadImageJCropReference.getCssReference());
+			
+			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.LoadImageReference.getJavaScriptReference());
+			page.getBody().addCssReference(AngularFileUploadReferencePool.LoadImageReference.getCssReference());
+			
+			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.LoadImageMetaReference.getJavaScriptReference());
+			page.getBody().addCssReference(AngularFileUploadReferencePool.LoadImageMetaReference.getCssReference());
+			
+			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.LoadImageExifReference.getJavaScriptReference());
+			page.getBody().addCssReference(AngularFileUploadReferencePool.LoadImageExifReference.getCssReference());
+			
+			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.LoadImageExifMapReference.getJavaScriptReference());
+			page.getBody().addCssReference(AngularFileUploadReferencePool.LoadImageExifMapReference.getCssReference());
+			
+			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.CanvasToBlobReference.getJavaScriptReference());
+			page.getBody().addCssReference(AngularFileUploadReferencePool.CanvasToBlobReference.getCssReference());
+			
 			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.GalleryReference.getJavaScriptReference());
 			page.getBody().addCssReference(AngularFileUploadReferencePool.GalleryReference.getCssReference());
 			
@@ -57,23 +89,16 @@ public class AngularFileUploadPageConfigurator extends PageConfigurator
 			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.GalleryHelperReference.getJavaScriptReference());
 			page.getBody().addCssReference(AngularFileUploadReferencePool.GalleryHelperReference.getCssReference());
 			
-			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.LoadImageJCropReference.getJavaScriptReference());
-			page.getBody().addCssReference(AngularFileUploadReferencePool.LoadImageJCropReference.getCssReference());
 			
-			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.LoadImageExifReference.getJavaScriptReference());
-			page.getBody().addCssReference(AngularFileUploadReferencePool.LoadImageExifReference.getCssReference());
+			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.FileUploadIFrameTransportReference.getJavaScriptReference());
+			page.getBody().addCssReference(AngularFileUploadReferencePool.FileUploadIFrameTransportReference.getCssReference());
 			
-			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.LoadImageExifMapReference.getJavaScriptReference());
-			page.getBody().addCssReference(AngularFileUploadReferencePool.LoadImageExifMapReference.getCssReference());
-			
-			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.LoadImageMetaReference.getJavaScriptReference());
-			page.getBody().addCssReference(AngularFileUploadReferencePool.LoadImageMetaReference.getCssReference());
-			
-			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.LoadImageReference.getJavaScriptReference());
-			page.getBody().addCssReference(AngularFileUploadReferencePool.LoadImageReference.getCssReference());
 			
 			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.FileUploadReference.getJavaScriptReference());
 			page.getBody().addCssReference(AngularFileUploadReferencePool.FileUploadReference.getCssReference());
+			
+			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.FileUploadProcessReference.getJavaScriptReference());
+			page.getBody().addCssReference(AngularFileUploadReferencePool.FileUploadProcessReference.getCssReference());
 			
 			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.FileUploadAudioReference.getJavaScriptReference());
 			page.getBody().addCssReference(AngularFileUploadReferencePool.FileUploadAudioReference.getCssReference());
@@ -81,14 +106,10 @@ public class AngularFileUploadPageConfigurator extends PageConfigurator
 			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.FileUploadImageReference.getJavaScriptReference());
 			page.getBody().addCssReference(AngularFileUploadReferencePool.FileUploadImageReference.getCssReference());
 			
-			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.FileUploadProcessReference.getJavaScriptReference());
-			page.getBody().addCssReference(AngularFileUploadReferencePool.FileUploadProcessReference.getCssReference());
 			
 			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.FileUploadValidateReference.getJavaScriptReference());
 			page.getBody().addCssReference(AngularFileUploadReferencePool.FileUploadValidateReference.getCssReference());
 			
-			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.FileUploadIFrameTransportReference.getJavaScriptReference());
-			page.getBody().addCssReference(AngularFileUploadReferencePool.FileUploadIFrameTransportReference.getCssReference());
 			
 			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.FileUploadVideoReference.getJavaScriptReference());
 			page.getBody().addCssReference(AngularFileUploadReferencePool.FileUploadVideoReference.getCssReference());
@@ -97,5 +118,43 @@ public class AngularFileUploadPageConfigurator extends PageConfigurator
 			page.getBody().addCssReference(AngularFileUploadReferencePool.FileUploadUIReference.getCssReference());
 		}
 		return page;
+	}
+	
+	/**
+	 * The gallery div
+	 *
+	 * @return
+	 */
+	public Div getGalleryDiv()
+	{
+		if (galleryDiv == null)
+		{
+			setGalleryDiv(new Div());
+		}
+		return galleryDiv;
+	}
+	
+	/**
+	 * Sets the gallery div
+	 *
+	 * @param galleryDiv
+	 */
+	public void setGalleryDiv(Div galleryDiv)
+	{
+		this.galleryDiv = galleryDiv;
+		if(this.galleryDiv != null)
+		{
+			this.galleryDiv.setID("blueimp-gallery");
+			this.galleryDiv.addClass("blueimp-gallery blueimp-gallery-controls");
+			this.galleryDiv.addAttribute("data-filter",":even");
+			
+			this.galleryDiv.add(new Div().addClass("slides"));
+			this.galleryDiv.add(new H3().addClass("title"));
+			this.galleryDiv.add(new Link().addClass("prev"));
+			this.galleryDiv.add(new Link().addClass("next"));
+			this.galleryDiv.add(new Link().addClass("close"));
+			this.galleryDiv.add(new Link().addClass("play-pause"));
+			this.galleryDiv.add(new List<>(true).addClass("indicator"));
+		}
 	}
 }

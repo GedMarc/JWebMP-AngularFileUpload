@@ -14,42 +14,17 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.angularfileuploader;
+package za.co.mmagon.jwebswing.plugins.smartwizard;
 
-import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
-import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavascriptPartType;
+import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
 
 /**
- * All the options
- * <p>
- * @author GedMarc
- * @since Mar 4, 2015
+ *
+ * @author Marc Magon
+ * @since 07 Aug 2015
  * @version 1.0
- * <p>
- * <p>
  */
-public class AngularFileUploadOptions extends JavaScriptPart
+public interface AngularFileUploadFeatures extends GlobalFeatures
 {
-
-    private static final long serialVersionUID = 1L;
-
-    /**
-     * The options for the component
-     */
-    public AngularFileUploadOptions()
-    {
-
-    }
-
-    /**
-     * Render as javascript
-     *
-     * @return
-     */
-    @Override
-    public JavascriptPartType getJavascriptType()
-    {
-        return JavascriptPartType.Javascript;
-    }
 
 }

@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.angularfileuploader;
+package za.co.mmagon.jwebswing.plugins.smartwizard;
 
 import za.co.mmagon.jwebswing.base.references.CSSReference;
 import za.co.mmagon.jwebswing.base.references.JavascriptReference;
@@ -28,6 +28,8 @@ import za.co.mmagon.jwebswing.base.servlets.interfaces.ReferencePool;
  */
 public enum AngularFileUploadReferencePool implements ReferencePool
 {
+	TemplatesReference(new JavascriptReference("TemplatesReference",1.0,"jwebswing-angular-file-upload/tmpl.min.js"),
+	                   null),
 	/**
 	 * Gallery Reference
 	 */
@@ -35,11 +37,10 @@ public enum AngularFileUploadReferencePool implements ReferencePool
                                       new CSSReference("GalleryReference",1.0,"jwebswing-angular-file-upload/gallery/css/blueimp-gallery.min.css")),
 	
 	GalleryIndicatorReference(new JavascriptReference("GalleryIndicatorReference",1.0,"jwebswing-angular-file-upload/gallery/js/blueimp-gallery-indicator.js"),
-	                          
-	                          new CSSReference("GalleryIndicatorReference",1.0,"jwebswing-angular-file-upload/gallery/css/blueimp-gallery.min.css")),
+	                          new CSSReference("GalleryIndicatorReference",1.0,"jwebswing-angular-file-upload/gallery/css/blueimp-gallery-indicator.css")),
 	
 	GalleryVideoReference(new JavascriptReference("GalleryVideoReference",1.0,"jwebswing-angular-file-upload/gallery/js/blueimp-gallery-video.js"),
-	                          new CSSReference("GalleryVideoReference",1.0,"jwebswing-angular-file-upload/gallery/css/blueimp-gallery.min.css")),
+	                          new CSSReference("GalleryVideoReference",1.0,"jwebswing-angular-file-upload/gallery/css/blueimp-gallery-video.css")),
 	
     GalleryVimeoReference(new JavascriptReference("GalleryVimeoReference",1.0,"jwebswing-angular-file-upload/gallery/js/blueimp-gallery-vimeo.js"),
                          null),
@@ -59,13 +60,16 @@ public enum AngularFileUploadReferencePool implements ReferencePool
 	
 	LoadImageExifReference(new JavascriptReference("LoadImageExifReference",1.0,"jwebswing-angular-file-upload/load-image/js/load-image-exif.js"),
 	                   null),
+	LoadImageMetaReference(new JavascriptReference("LoadImageMetaReference",1.0,"jwebswing-angular-file-upload/load-image/js/load-image-meta.js"),
+	                       null),
 	LoadImageExifMapReference(new JavascriptReference("LoadImageExifMapReference",1.0,"jwebswing-angular-file-upload/load-image/js/load-image-exif-map.js"),
 	                   null),
-	LoadImageMetaReference(new JavascriptReference("LoadImageMetaReference",1.0,"jwebswing-angular-file-upload/load-image/js/load-image-meta.js"),
-	                          null),
 	LoadImageReference(new JavascriptReference("LoadImageReference",1.0,"jwebswing-angular-file-upload/load-image/js/load-image.js"),
 	                   null),
 	
+	
+	CanvasToBlobReference(new JavascriptReference("CanvasToBlobReference",1.0,"jwebswing-angular-file-upload/file-upload/js/canvas-to-blob.min.js"),
+	                   null),
 	
 	/**
 	 * File Upload

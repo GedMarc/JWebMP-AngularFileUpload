@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.angularfileuploader;
+package za.co.mmagon.jwebswing.plugins.smartwizard;
 
 import za.co.mmagon.jwebswing.Component;
 import za.co.mmagon.jwebswing.Feature;
@@ -41,7 +41,7 @@ public class AngularFileUploadFeature extends Feature<AngularFileUploadOptions, 
      */
     public AngularFileUploadFeature(Component forComponent)
     {
-        super("Blank");
+        super("AngularFileUploadFeature");
         setComponent(forComponent);
     }
 

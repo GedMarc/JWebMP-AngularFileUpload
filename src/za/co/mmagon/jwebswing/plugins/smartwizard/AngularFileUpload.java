@@ -1,4 +1,4 @@
-package za.co.mmagon.jwebswing.plugins.angularfileuploader;
+package za.co.mmagon.jwebswing.plugins.smartwizard;
 
 import za.co.mmagon.jwebswing.base.html.DivSimple;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
