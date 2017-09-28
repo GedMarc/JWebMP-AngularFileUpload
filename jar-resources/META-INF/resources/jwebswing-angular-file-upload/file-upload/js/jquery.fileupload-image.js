@@ -162,19 +162,19 @@
                     file = data.files[data.index],
                     dfd = $.Deferred();
                 if (($.type(options.maxFileSize) === 'number' &&
-                            file.size > options.maxFileSize) ||
-                        (options.fileTypes &&
-                            !options.fileTypes.test(file.type)) ||
-                        !loadImage(
-                            file,
-                            function (img) {
-                                if (img.src) {
-                                    data.img = img;
-                                }
-                                dfd.resolveWith(that, [data]);
-                            },
-                            options
-                        )) {
+                        file.size > options.maxFileSize) ||
+                    (options.fileTypes &&
+                        !options.fileTypes.test(file.type)) ||
+                    !loadImage(
+                        file,
+                        function (img) {
+                            if (img.src) {
+                                data.img = img;
+                            }
+                            dfd.resolveWith(that, [data]);
+                        },
+                        options
+                    )) {
                     return data;
                 }
                 return dfd.promise();

@@ -19,10 +19,9 @@ package za.co.mmagon.jwebswing.plugins.smartwizard;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalChildren;
 
 /**
- *
  * @author Marc Magon
- * @since 07 Aug 2015
  * @version 1.0
+ * @since 07 Aug 2015
  */
 public interface AngularFileUploadChildren extends GlobalChildren
 {

@@ -142,11 +142,11 @@ public class AngularFileUploadPageConfigurator extends PageConfigurator
 	public void setGalleryDiv(Div galleryDiv)
 	{
 		this.galleryDiv = galleryDiv;
-		if(this.galleryDiv != null)
+		if (this.galleryDiv != null)
 		{
 			this.galleryDiv.setID("blueimp-gallery");
 			this.galleryDiv.addClass("blueimp-gallery blueimp-gallery-controls");
-			this.galleryDiv.addAttribute("data-filter",":even");
+			this.galleryDiv.addAttribute("data-filter", ":even");
 			
 			this.galleryDiv.add(new Div().addClass("slides"));
 			this.galleryDiv.add(new H3().addClass("title"));

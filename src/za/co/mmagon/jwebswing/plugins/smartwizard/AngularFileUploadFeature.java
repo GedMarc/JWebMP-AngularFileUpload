@@ -24,74 +24,76 @@ import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
  * Adds on a ToolTip, String for custom text using header theme, Div for custom contents
  *
  * @author MMagon
- * @since 2013/01/16
  * @version 1.0
+ * @since 2013/01/16
  */
 public class AngularFileUploadFeature extends Feature<AngularFileUploadOptions, AngularFileUploadFeature> implements AngularFileUploadFeatures, GlobalFeatures
 {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    private AngularFileUploadOptions options;
+	private AngularFileUploadOptions options;
 
-    /**
-     * Constructs a new Tooltip ComponentFeatureBase for a component. Adds the tooltip text as the Title attribute to the component
-     * <p>
-     * @param forComponent
-     */
-    public AngularFileUploadFeature(Component forComponent)
-    {
-        super("AngularFileUploadFeature");
-        setComponent(forComponent);
-    }
+	/**
+	 * Constructs a new Tooltip ComponentFeatureBase for a component. Adds the tooltip text as the Title attribute to the component
+	 * <p>
+	 *
+	 * @param forComponent
+	 */
+	public AngularFileUploadFeature(Component forComponent)
+	{
+		super("AngularFileUploadFeature");
+		setComponent(forComponent);
+	}
 
-    /**
-     * Returns all the tooltip options
-     * <p>
-     * @return
-     */
-    @Override
-    public AngularFileUploadOptions getOptions()
-    {
-        if (options == null)
-        {
-            options = new AngularFileUploadOptions();
-        }
-        return options;
-    }
+	/**
+	 * Returns all the tooltip options
+	 * <p>
+	 *
+	 * @return
+	 */
+	@Override
+	public AngularFileUploadOptions getOptions()
+	{
+		if (options == null)
+		{
+			options = new AngularFileUploadOptions();
+		}
+		return options;
+	}
 
-    @Override
-    public void assignFunctionsToComponent()
-    {
-        String requiredString = getComponent().getJQueryID() + "blank(";
-        requiredString += getOptions().toString();
-        requiredString += ");" + getNewLine();
-        addQuery(requiredString);
-    }
+	@Override
+	public void assignFunctionsToComponent()
+	{
+		String requiredString = getComponent().getJQueryID() + "blank(";
+		requiredString += getOptions().toString();
+		requiredString += ");" + getNewLine();
+		addQuery(requiredString);
+	}
 
-    @Override
-    public boolean equals(Object obj)
-    {
-        if (this == obj)
-        {
-            return true;
-        }
-        if (obj == null)
-        {
-            return false;
-        }
-        if (getClass() != obj.getClass())
-        {
-            return false;
-        }
-        return super.equals(obj);
-    }
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (this == obj)
+		{
+			return true;
+		}
+		if (obj == null)
+		{
+			return false;
+		}
+		if (getClass() != obj.getClass())
+		{
+			return false;
+		}
+		return super.equals(obj);
+	}
 
-    @Override
-    public int hashCode()
-    {
-        int hash = 7;
-        hash = 79 * hash + (this.getID().hashCode());
-        return hash;
-    }
+	@Override
+	public int hashCode()
+	{
+		int hash = 7;
+		hash = 79 * hash + (this.getID().hashCode());
+		return hash;
+	}
 }

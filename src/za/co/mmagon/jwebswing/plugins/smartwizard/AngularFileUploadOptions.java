@@ -22,34 +22,35 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavascriptPartType;
 /**
  * All the options
  * <p>
+ *
  * @author GedMarc
- * @since Mar 4, 2015
  * @version 1.0
  * <p>
  * <p>
+ * @since Mar 4, 2015
  */
 public class AngularFileUploadOptions extends JavaScriptPart
 {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * The options for the component
-     */
-    public AngularFileUploadOptions()
-    {
+	/**
+	 * The options for the component
+	 */
+	public AngularFileUploadOptions()
+	{
 
-    }
+	}
 
-    /**
-     * Render as javascript
-     *
-     * @return
-     */
-    @Override
-    public JavascriptPartType getJavascriptType()
-    {
-        return JavascriptPartType.Javascript;
-    }
+	/**
+	 * Render as javascript
+	 *
+	 * @return
+	 */
+	@Override
+	public JavascriptPartType getJavascriptType()
+	{
+		return JavascriptPartType.Javascript;
+	}
 
 }

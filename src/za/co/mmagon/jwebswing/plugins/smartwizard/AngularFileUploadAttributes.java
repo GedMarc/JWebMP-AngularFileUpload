@@ -19,51 +19,50 @@ package za.co.mmagon.jwebswing.plugins.smartwizard;
 import za.co.mmagon.jwebswing.base.html.interfaces.AttributeDefinitions;
 
 /**
- *
  * @author GedMarc
  */
 public enum AngularFileUploadAttributes implements AttributeDefinitions
 {
-    Visibility;
+	Visibility;
 
-    private boolean isKeyword;
+	private boolean isKeyword;
 
-    /**
-     * The component attributes
-     */
-    private AngularFileUploadAttributes()
-    {
-    }
+	/**
+	 * The component attributes
+	 */
+	private AngularFileUploadAttributes()
+	{
+	}
 
-    /**
-     * If the attribute is loaded as a keyword only
-     *
-     * @param isKeyword
-     */
-    private AngularFileUploadAttributes(boolean isKeyword)
-    {
-        this.isKeyword = isKeyword;
-    }
+	/**
+	 * If the attribute is loaded as a keyword only
+	 *
+	 * @param isKeyword
+	 */
+	private AngularFileUploadAttributes(boolean isKeyword)
+	{
+		this.isKeyword = isKeyword;
+	}
 
-    /**
-     * If the attribute is a keyword
-     *
-     * @return
-     */
-    @Override
-    public boolean isKeyword()
-    {
-        return isKeyword;
-    }
+	/**
+	 * If the attribute is a keyword
+	 *
+	 * @return
+	 */
+	@Override
+	public boolean isKeyword()
+	{
+		return isKeyword;
+	}
 
-    /**
-     * Returns the attribute name replacing all underscores with dashes and all dollar signs to empty
-     *
-     * @return
-     */
-    @Override
-    public String toString()
-    {
-        return name().toLowerCase().replace('_', '-').replace("$", "");
-    }
+	/**
+	 * Returns the attribute name replacing all underscores with dashes and all dollar signs to empty
+	 *
+	 * @return
+	 */
+	@Override
+	public String toString()
+	{
+		return name().toLowerCase().replace('_', '-').replace("$", "");
+	}
 }
