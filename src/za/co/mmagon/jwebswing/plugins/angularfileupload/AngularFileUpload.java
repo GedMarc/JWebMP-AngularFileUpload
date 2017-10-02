@@ -1,4 +1,4 @@
-package za.co.mmagon.jwebswing.plugins.smartwizard;
+package za.co.mmagon.jwebswing.plugins.angularfileupload;
 
 import za.co.mmagon.jwebswing.base.html.DivSimple;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
@@ -15,5 +15,7 @@ public class AngularFileUpload<J extends AngularFileUpload<J>> extends DivSimple
 	{
 		//Nothing Needed
 	}
+	
+	
 	
 }

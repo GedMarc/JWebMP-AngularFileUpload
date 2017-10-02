@@ -1,4 +1,4 @@
-package za.co.mmagon.jwebswing.plugins.smartwizard;
+package za.co.mmagon.jwebswing.plugins.angularfileupload;
 
 import com.google.inject.Singleton;
 import za.co.mmagon.jwebswing.Page;

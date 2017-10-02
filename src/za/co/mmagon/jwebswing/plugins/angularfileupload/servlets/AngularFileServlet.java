@@ -1,4 +1,4 @@
-package za.co.mmagon.jwebswing.plugins.smartwizard.servlets;
+package za.co.mmagon.jwebswing.plugins.angularfileupload.servlets;
 
 import com.google.inject.Singleton;
 
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Singleton
-public class AngularFileUploadServlet extends HttpServlet
+public class AngularFileServlet extends HttpServlet
 {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
@@ -20,7 +20,6 @@ public class AngularFileUploadServlet extends HttpServlet
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
 	{
-		
 		super.doPost(req, resp);
 	}
 }

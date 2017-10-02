@@ -1,4 +1,4 @@
-package za.co.mmagon.jwebswing.plugins.smartwizard;
+package za.co.mmagon.jwebswing.plugins.angularfileupload;
 
 import org.junit.jupiter.api.Test;
 import za.co.mmagon.BaseTestClass;
