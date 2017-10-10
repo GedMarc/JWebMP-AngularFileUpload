@@ -19,6 +19,7 @@ package za.co.mmagon.jwebswing.plugins.angularfileupload;
 import za.co.mmagon.jwebswing.base.references.CSSReference;
 import za.co.mmagon.jwebswing.base.references.JavascriptReference;
 import za.co.mmagon.jwebswing.base.servlets.interfaces.ReferencePool;
+import za.co.mmagon.jwebswing.plugins.angularfileupload.interfaces.ReferenceNames;
 
 /**
  * Default reference pool structure
@@ -26,7 +27,7 @@ import za.co.mmagon.jwebswing.base.servlets.interfaces.ReferencePool;
  * @author GedMarc
  * @since 20 Apr 2016
  */
-public enum AngularFileUploadReferencePool implements ReferencePool
+public enum AngularFileUploadReferencePool implements ReferencePool,ReferenceNames
 {
 	TemplatesReference(new JavascriptReference("TemplatesReference", 1.0, "jwebswing-angular-file-upload/tmpl.min.js"),
 	                   null),
@@ -75,8 +76,8 @@ public enum AngularFileUploadReferencePool implements ReferencePool
 	 * File Upload
 	 */
 	
-	FileUploadReference(new JavascriptReference("FileUploadReference", 1.0, "jwebswing-angular-file-upload/file-upload/js/jquery.fileupload.js"),
-	                    new CSSReference("FileUploadReference", 1.0, "jwebswing-angular-file-upload/file-upload/css/jquery.fileupload.css")),
+	FileUploadReference(new JavascriptReference(ReferenceNames.FileUploadReference, 1.0, "jwebswing-angular-file-upload/file-upload/js/jquery.fileupload.js"),
+	                    new CSSReference(ReferenceNames.FileUploadReference, 1.0, "jwebswing-angular-file-upload/file-upload/css/jquery.fileupload.css")),
 	
 	FileUploadAudioReference(new JavascriptReference("FileUploadAudioReference", 1.0, "jwebswing-angular-file-upload/file-upload/js/jquery.fileupload-audio.js"),
 	                         null),
@@ -93,7 +94,7 @@ public enum AngularFileUploadReferencePool implements ReferencePool
 	                         null),
 	
 	
-	FileUploadUIReference(new JavascriptReference("FileUploadReference", 1.0, "jwebswing-angular-file-upload/file-upload/js/jquery.fileupload-ui.js"),
+	FileUploadUIReference(new JavascriptReference(ReferenceNames.FileUploadReference, 1.0, "jwebswing-angular-file-upload/file-upload/js/jquery.fileupload-ui.js"),
 	                      new CSSReference("angularFileUploadReference", 1.0, "jwebswing-angular-file-upload/file-upload/css/jquery.fileupload-ui.css")),;
 	/**
 	 * The actual javascript

@@ -39,18 +39,6 @@ public class AngularFileUploadOptions extends JavaScriptPart
 	 */
 	public AngularFileUploadOptions()
 	{
-
+		//Not needed for construction
 	}
-
-	/**
-	 * Render as javascript
-	 *
-	 * @return
-	 */
-	@Override
-	public JavascriptPartType getJavascriptType()
-	{
-		return JavascriptPartType.Javascript;
-	}
-
 }

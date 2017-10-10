@@ -35,16 +35,6 @@ public enum AngularFileUploadAttributes implements AttributeDefinitions
 	}
 
 	/**
-	 * If the attribute is loaded as a keyword only
-	 *
-	 * @param isKeyword
-	 */
-	private AngularFileUploadAttributes(boolean isKeyword)
-	{
-		this.isKeyword = isKeyword;
-	}
-
-	/**
 	 * If the attribute is a keyword
 	 *
 	 * @return
