@@ -67,8 +67,4 @@
     <orderEntry type="module" module-name="jwebswing-bootstrap" />
     <orderEntry type="module" module-name="jwebswing" scope="TEST" production-on-test="" />
   </component>
-  <component name="sonarModuleSettings">
-    <option name="localAnalysisScripName" value="&lt;PROJECT&gt;" />
-    <option name="serverName" value="&lt;PROJECT&gt;" />
-  </component>
 </module>

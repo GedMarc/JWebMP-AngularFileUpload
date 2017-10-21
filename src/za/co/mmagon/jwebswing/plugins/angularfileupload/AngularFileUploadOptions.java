@@ -17,7 +17,7 @@
 package za.co.mmagon.jwebswing.plugins.angularfileupload;
 
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
-import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavascriptPartType;
+
 
 /**
  * All the options

@@ -32,22 +32,6 @@ public class AngularFileServlet extends JWDefaultServlet
 		//Nothing Needed
 	}
 	
-	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException, InvalidRequestException
-	{
-		log.log(Level.FINER, "[SessionID]-[{0}];[Connection]-[Data Call Connection Established]", request.getSession().getId());
-		String componentId = "";
-		StringBuilder jb = new StringBuilder(IOUtils.toString(request.getInputStream(), "UTF-8"));
-		
-		AngularFileTransferData initData = new JavaScriptPart<>().From(jb.toString(), AngularFileTransferData.class);
-		if(initData == null)
-			throw new InvalidRequestException("Could not extract the initial data from the information sent in");
-		if (jb.length() > 0)
-		{
-			initData = new JavaScriptPart<>().From(jb.toString(), AngularFileTransferData.class);
-		}
-	}
-	
 	/**
 	 * Validates and sends the post
 	 *
@@ -58,15 +42,33 @@ public class AngularFileServlet extends JWDefaultServlet
 	 * @throws IOException
 	 */
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	{
 		try
 		{
-			processRequest(request, response);
+			processRequest(request);
 		}
-		catch (IOException | ServletException | InvalidRequestException e)
+		catch (IOException | InvalidRequestException e)
 		{
 			log.log(Level.SEVERE, "Angular File Servlet Do Post", e);
+		}
+	}
+
+	protected void processRequest(HttpServletRequest request)
+			throws IOException, InvalidRequestException
+	{
+		log.log(Level.FINER, "[SessionID]-[{0}];[Connection]-[Data Call Connection Established]", request.getSession().getId());
+		StringBuilder jb = new StringBuilder(IOUtils.toString(request.getInputStream(), "UTF-8"));
+
+		AngularFileTransferData initData = new JavaScriptPart<>().From(jb.toString(), AngularFileTransferData.class);
+		if (initData == null)
+		{
+			throw new InvalidRequestException("Could not extract the initial data from the information sent in");
+		}
+		if (jb.length() > 0)
+		{
+			initData = new JavaScriptPart<>().From(jb.toString(), AngularFileTransferData.class);
+			initData.setReferenceId("Test");
 		}
 	}
 }
