@@ -19,7 +19,6 @@ package za.co.mmagon.jwebswing.plugins.angularfileupload;
 import za.co.mmagon.jwebswing.base.references.CSSReference;
 import za.co.mmagon.jwebswing.base.references.JavascriptReference;
 import za.co.mmagon.jwebswing.base.servlets.interfaces.ReferencePool;
-import za.co.mmagon.jwebswing.plugins.angularfileupload.interfaces.ReferenceNames;
 
 /**
  * Default reference pool structure
@@ -108,7 +107,7 @@ public enum AngularFileUploadReferencePool implements ReferencePool,ReferenceNam
 	/**
 	 * Constructs a reference pool
 	 */
-	private AngularFileUploadReferencePool()
+	AngularFileUploadReferencePool()
 	{
 	}
 	
@@ -118,7 +117,7 @@ public enum AngularFileUploadReferencePool implements ReferencePool,ReferenceNam
 	 * @param javaScriptReference
 	 * @param cssReference
 	 */
-	private AngularFileUploadReferencePool(JavascriptReference javaScriptReference, CSSReference cssReference)
+	AngularFileUploadReferencePool(JavascriptReference javaScriptReference, CSSReference cssReference)
 	{
 		this.javaScriptReference = javaScriptReference;
 		this.cssReference = cssReference;
