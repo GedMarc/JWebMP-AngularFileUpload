@@ -2,7 +2,6 @@ package za.co.mmagon.jwebswing.plugins.angularfileupload;
 
 import com.armineasy.injection.abstractions.GuiceSiteInjectorModule;
 import com.armineasy.injection.interfaces.GuiceSiteBinder;
-import za.co.mmagon.jwebswing.plugins.angularfileupload.servlets.AngularFileServlet;
 import za.co.mmagon.logger.LogFactory;
 
 import java.util.logging.Logger;
@@ -16,6 +15,6 @@ public class AngularFileUploadModule extends GuiceSiteBinder
 	public void onBind(GuiceSiteInjectorModule module)
 	{
 		log.info("Binding file upload to /jwfileupload");
-		module.serve$("/filetransfer" + QueryParametersRegex).with(AngularFileServlet.class);
+		//module.serve$("/filetransfer" + QueryParametersRegex).with(AngularFileServlet.class);
 	}
 }
