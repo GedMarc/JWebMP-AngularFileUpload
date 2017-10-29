@@ -2,9 +2,9 @@ package za.co.mmagon.jwebswing.plugins.angularfileupload.servlets;
 
 import com.google.inject.Singleton;
 import org.apache.commons.io.IOUtils;
-import za.co.mmagon.jwebswing.base.ajax.exceptions.InvalidRequestException;
 import za.co.mmagon.jwebswing.base.servlets.JWDefaultServlet;
 import za.co.mmagon.jwebswing.base.servlets.options.AngularFileTransferData;
+import za.co.mmagon.jwebswing.exceptions.InvalidRequestException;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.logger.LogFactory;
 
@@ -23,7 +23,7 @@ public class AngularFileServlet extends JWDefaultServlet
 {
 	private static final long serialVersionUID = 1L;
 	private static final Logger log = LogFactory.getInstance().getLogger("AngularFileServlet");
-	
+
 	/**
 	 * Constructs a new File Servlet
 	 */
@@ -31,7 +31,7 @@ public class AngularFileServlet extends JWDefaultServlet
 	{
 		//Nothing Needed
 	}
-	
+
 	/**
 	 * Validates and sends the post
 	 *
