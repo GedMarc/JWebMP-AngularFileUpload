@@ -17,6 +17,7 @@
 package za.co.mmagon.jwebswing.plugins.angularfileupload;
 
 import za.co.mmagon.jwebswing.base.html.interfaces.AttributeDefinitions;
+import za.co.mmagon.jwebswing.utilities.StaticStrings;
 
 import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_EMPTY;
 
@@ -55,6 +56,6 @@ public enum AngularFileUploadAttributes implements AttributeDefinitions
 	@Override
 	public String toString()
 	{
-		return name().toLowerCase().replace('_', '-').replace("$", STRING_EMPTY);
+		return name().toLowerCase().replace(StaticStrings.CHAR_UNDERSCORE, '-').replace("$", STRING_EMPTY);
 	}
 }
