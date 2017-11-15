@@ -44,6 +44,7 @@ public class AngularFileUploadPageConfigurator extends PageConfigurator
 	}
 	
 	@Override
+	@SuppressWarnings("unchecked")
 	public Page configure(Page page)
 	{
 		if (!page.isConfigured())
@@ -139,6 +140,7 @@ public class AngularFileUploadPageConfigurator extends PageConfigurator
 	 *
 	 * @param galleryDiv
 	 */
+	@SuppressWarnings("unchecked")
 	public void setGalleryDiv(Div galleryDiv)
 	{
 		this.galleryDiv = galleryDiv;
