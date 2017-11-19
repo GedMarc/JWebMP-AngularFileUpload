@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import za.co.mmagon.jwebswing.BaseTestClass;
 import za.co.mmagon.jwebswing.Page;
 
-class AngularFileUploadTest extends BaseTestClass
+public class AngularFileUploadTest extends BaseTestClass
 {
 	@Test
 	public void testPage()
