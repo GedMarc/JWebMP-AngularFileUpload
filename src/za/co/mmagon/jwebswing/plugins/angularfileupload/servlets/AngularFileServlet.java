@@ -1,16 +1,20 @@
 package za.co.mmagon.jwebswing.plugins.angularfileupload.servlets;
 
+import com.armineasy.injection.GuiceContext;
 import com.google.inject.Singleton;
 import org.apache.commons.io.IOUtils;
 import za.co.mmagon.jwebswing.base.servlets.JWDefaultServlet;
+import za.co.mmagon.jwebswing.base.servlets.SessionStorageProperties;
 import za.co.mmagon.jwebswing.base.servlets.options.AngularFileTransferData;
 import za.co.mmagon.jwebswing.exceptions.InvalidRequestException;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.logger.LogFactory;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,6 +23,7 @@ import java.util.logging.Logger;
  * The default file receiving servlet
  */
 @Singleton
+@MultipartConfig
 public class AngularFileServlet extends JWDefaultServlet
 {
 	private static final long serialVersionUID = 1L;
@@ -54,6 +59,27 @@ public class AngularFileServlet extends JWDefaultServlet
 		}
 	}
 
+
+	/**
+	 * Gets a file name from a given upload part
+	 *
+	 * @param part
+	 *
+	 * @return
+	 */
+	public static String getFilename(Part part)
+	{
+		for (String cd : part.getHeader("content-disposition").split(";"))
+		{
+			if (cd.trim().startsWith("filename"))
+			{
+				String filename = cd.substring(cd.indexOf('=') + 1).trim().replace("\"", "");
+				return filename.substring(filename.lastIndexOf('/') + 1).substring(filename.lastIndexOf('\\') + 1); // MSIE fix.
+			}
+		}
+		return null;
+	}
+
 	protected void processRequest(HttpServletRequest request)
 			throws IOException, InvalidRequestException
 	{
@@ -70,5 +96,8 @@ public class AngularFileServlet extends JWDefaultServlet
 			initData = new JavaScriptPart<>().From(jb.toString(), AngularFileTransferData.class);
 			initData.setReferenceId("Test");
 		}
+
+		SessionStorageProperties properties = GuiceContext.getInstance(SessionStorageProperties.class);
+		properties.getLocalStorage().put("fileupload", "true");
 	}
 }
