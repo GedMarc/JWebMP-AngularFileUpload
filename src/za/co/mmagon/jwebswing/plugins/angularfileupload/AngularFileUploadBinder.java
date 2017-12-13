@@ -1,7 +1,7 @@
 package za.co.mmagon.jwebswing.plugins.angularfileupload;
 
-import com.armineasy.injection.abstractions.GuiceSiteInjectorModule;
-import com.armineasy.injection.interfaces.GuiceSiteBinder;
+import za.co.mmagon.guiceinjection.abstractions.GuiceSiteInjectorModule;
+import za.co.mmagon.guiceinjection.interfaces.GuiceSiteBinder;
 import za.co.mmagon.jwebswing.plugins.angularfileupload.servlets.AngularFileServlet;
 import za.co.mmagon.logger.LogFactory;
 

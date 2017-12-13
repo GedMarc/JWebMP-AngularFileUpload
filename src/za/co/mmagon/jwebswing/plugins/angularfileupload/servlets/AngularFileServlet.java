@@ -1,8 +1,8 @@
 package za.co.mmagon.jwebswing.plugins.angularfileupload.servlets;
 
-import com.armineasy.injection.GuiceContext;
 import com.google.inject.Singleton;
 import org.apache.commons.io.IOUtils;
+import za.co.mmagon.guiceinjection.GuiceContext;
 import za.co.mmagon.jwebswing.base.ajax.AjaxResponse;
 import za.co.mmagon.jwebswing.base.servlets.JWDefaultServlet;
 import za.co.mmagon.jwebswing.base.servlets.SessionStorageProperties;
