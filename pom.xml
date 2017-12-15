@@ -17,7 +17,6 @@
     </issueManagement>
 
     <repositories>
-
         <repository>
             <id>jwebswing-snapshot</id>
             <name>JWebSwingArtifactory-snapshots</name>
