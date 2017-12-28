@@ -23,6 +23,9 @@ import java.nio.charset.Charset;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_BACKSLASH;
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.CHAR_SLASH;
+
 /**
  * The default file receiving servlet
  */
@@ -60,11 +63,11 @@ public class AngularFileServlet extends JWDefaultServlet
 		}
 	}
 
-
+	@SuppressWarnings("unchecked")
 	protected void processRequest(HttpServletRequest request)
 			throws IOException, InvalidRequestException
 	{
-		log.log(Level.FINER, "[SessionID]-[{0}];[Connection]-[Data Call Connection Established]", request.getSession().getId());
+		log.log(Level.INFO, "[SessionID]-[{0}];[Connection]-[Data Call Connection Established]", request.getSession().getId());
 		StringBuilder jb = new StringBuilder(IOUtils.toString(request.getInputStream(), "UTF-8"));
 
 		AngularFileTransferData initData = new JavaScriptPart<>().From(jb.toString(), AngularFileTransferData.class);
@@ -72,10 +75,14 @@ public class AngularFileServlet extends JWDefaultServlet
 		{
 			throw new InvalidRequestException("Could not extract the initial data from the information sent in");
 		}
+
 		if (jb.length() > 0)
 		{
 			initData = new JavaScriptPart<>().From(jb.toString(), AngularFileTransferData.class);
-			initData.setReferenceId("Test");
+			if (initData.getReferenceId() == null)
+			{
+				initData.setReferenceId("Test");
+			}
 		}
 
 		SessionStorageProperties properties = GuiceContext.getInstance(SessionStorageProperties.class);
@@ -110,7 +117,7 @@ public class AngularFileServlet extends JWDefaultServlet
 			if (cd.trim().startsWith("filename"))
 			{
 				String filename = cd.substring(cd.indexOf(StaticStrings.CHAR_EQUALS) + 1).trim().replace(StaticStrings.STRING_DOUBLE_QUOTES, StaticStrings.STRING_EMPTY);
-				return filename.substring(filename.lastIndexOf('/') + 1).substring(filename.lastIndexOf('\\') + 1); // MSIE fix.
+				return filename.substring(filename.lastIndexOf(CHAR_SLASH) + 1).substring(filename.lastIndexOf(CHAR_BACKSLASH) + 1); // MSIE fix.
 			}
 		}
 		return null;

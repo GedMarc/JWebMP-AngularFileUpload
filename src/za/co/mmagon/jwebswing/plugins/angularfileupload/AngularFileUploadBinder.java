@@ -17,6 +17,8 @@ public class AngularFileUploadBinder extends GuiceSiteBinder
 	public void onBind(GuiceSiteInjectorModule module)
 	{
 		module.serveRegex$("(" + "/angularfileupload" + ")" + QUERY_PARAMETERS_REGEX).with(AngularFileServlet.class);
+
+
 		log.log(Level.INFO, "Serving File Uploads at {0}", "/angularfileupload");
 	}
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -28,73 +28,76 @@ import za.co.mmagon.jwebswing.base.servlets.interfaces.ReferencePool;
  */
 public enum AngularFileUploadReferencePool implements ReferencePool
 {
+	/**
+	 * Display Template
+	 */
 	TemplatesReference(new JavascriptReference("TemplatesReference", 1.0, "jwebswing-angular-file-upload/tmpl.min.js"),
 	                   null),
 	/**
 	 * Gallery Reference
 	 */
-	GalleryReference(new JavascriptReference("GalleryReference", 1.0, "jwebswing-angular-file-upload/gallery/js/blueimp-gallery.js"),
+	GalleryReference(new JavascriptReference("GalleryReference", 1.0, "jwebswing-angular-file-upload/gallery/js/blueimp-gallery.min.js"),
 	                 new CSSReference("GalleryReference", 1.0, "jwebswing-angular-file-upload/gallery/css/blueimp-gallery.min.css")),
-	
-	GalleryIndicatorReference(new JavascriptReference("GalleryIndicatorReference", 1.0, "jwebswing-angular-file-upload/gallery/js/blueimp-gallery-indicator.js"),
-	                          new CSSReference("GalleryIndicatorReference", 1.0, "jwebswing-angular-file-upload/gallery/css/blueimp-gallery-indicator.css")),
-	
-	GalleryVideoReference(new JavascriptReference("GalleryVideoReference", 1.0, "jwebswing-angular-file-upload/gallery/js/blueimp-gallery-video.js"),
-	                      new CSSReference("GalleryVideoReference", 1.0, "jwebswing-angular-file-upload/gallery/css/blueimp-gallery-video.css")),
-	
-	GalleryVimeoReference(new JavascriptReference("GalleryVimeoReference", 1.0, "jwebswing-angular-file-upload/gallery/js/blueimp-gallery-vimeo.js"),
+
+	GalleryIndicatorReference(new JavascriptReference("GalleryIndicatorReference", 1.0, "jwebswing-angular-file-upload/gallery/js/blueimp-gallery-indicator.min.js"),
+	                          new CSSReference("GalleryIndicatorReference", 1.0, "jwebswing-angular-file-upload/gallery/css/blueimp-gallery-indicator.min.css")),
+
+	GalleryVideoReference(new JavascriptReference("GalleryVideoReference", 1.0, "jwebswing-angular-file-upload/gallery/js/blueimp-gallery-video.min.js"),
+	                      new CSSReference("GalleryVideoReference", 1.0, "jwebswing-angular-file-upload/gallery/css/blueimp-gallery-video.min.css")),
+
+	GalleryVimeoReference(new JavascriptReference("GalleryVimeoReference", 1.0, "jwebswing-angular-file-upload/gallery/js/blueimp-gallery-vimeo.min.js"),
 	                      null),
-	
-	GalleryYoutubeReference(new JavascriptReference("GalleryYoutubeReference", 1.0, "jwebswing-angular-file-upload/gallery/js/blueimp-gallery-youtube.js"),
+
+	GalleryYoutubeReference(new JavascriptReference("GalleryYoutubeReference", 1.0, "jwebswing-angular-file-upload/gallery/js/blueimp-gallery-youtube.min.js"),
 	                        null),
-	
-	GalleryHelperReference(new JavascriptReference("GalleryHelperReference", 1.0, "jwebswing-angular-file-upload/gallery/js/blueimp-helper.js"),
+
+	GalleryHelperReference(new JavascriptReference("GalleryHelperReference", 1.0, "jwebswing-angular-file-upload/gallery/js/blueimp-helper.min.js"),
 	                       null),
-	
+
 	/**
 	 * Load Image
 	 */
-	
-	LoadImageJCropReference(new JavascriptReference("LoadImageJCropReference", 1.0, "jwebswing-angular-file-upload/load-image/js/vendor/jquery.Jcrop.js"),
-	                        new CSSReference("LoadImageJCropReference", 1.0, "jwebswing-angular-file-upload/load-image/css/vendor/jquery.Jcrop.css")),
-	
-	LoadImageExifReference(new JavascriptReference("LoadImageExifReference", 1.0, "jwebswing-angular-file-upload/load-image/js/load-image-exif.js"),
+
+	LoadImageJCropReference(new JavascriptReference("LoadImageJCropReference", 1.0, "jwebswing-angular-file-upload/load-image/js/vendor/jquery.Jcrop.min.js"),
+	                        new CSSReference("LoadImageJCropReference", 1.0, "jwebswing-angular-file-upload/load-image/css/vendor/jquery.Jcrop.min.css")),
+
+	LoadImageExifReference(new JavascriptReference("LoadImageExifReference", 1.0, "jwebswing-angular-file-upload/load-image/js/load-image-exif.min.js"),
 	                       null),
-	LoadImageMetaReference(new JavascriptReference("LoadImageMetaReference", 1.0, "jwebswing-angular-file-upload/load-image/js/load-image-meta.js"),
+	LoadImageMetaReference(new JavascriptReference("LoadImageMetaReference", 1.0, "jwebswing-angular-file-upload/load-image/js/load-image-meta.min.js"),
 	                       null),
-	LoadImageExifMapReference(new JavascriptReference("LoadImageExifMapReference", 1.0, "jwebswing-angular-file-upload/load-image/js/load-image-exif-map.js"),
+	LoadImageExifMapReference(new JavascriptReference("LoadImageExifMapReference", 1.0, "jwebswing-angular-file-upload/load-image/js/load-image-exif-map.min.js"),
 	                          null),
-	LoadImageReference(new JavascriptReference("LoadImageReference", 1.0, "jwebswing-angular-file-upload/load-image/js/load-image.js"),
+	LoadImageReference(new JavascriptReference("LoadImageReference", 1.0, "jwebswing-angular-file-upload/load-image/js/load-image.min.js"),
 	                   null),
-	
-	
+
+
 	CanvasToBlobReference(new JavascriptReference("CanvasToBlobReference", 1.0, "jwebswing-angular-file-upload/file-upload/js/canvas-to-blob.min.js"),
 	                      null),
-	
+
 	/**
 	 * File Upload
 	 */
 
-	FileUploadReference(new JavascriptReference("FileUploadReference", 1.0, "jwebswing-angular-file-upload/file-upload/js/jquery.fileupload.js"),
-	                    new CSSReference("FileUploadReferenceCSS", 1.0, "jwebswing-angular-file-upload/file-upload/css/jquery.fileupload.css")),
-	
-	FileUploadAudioReference(new JavascriptReference("FileUploadAudioReference", 1.0, "jwebswing-angular-file-upload/file-upload/js/jquery.fileupload-audio.js"),
+	FileUploadReference(new JavascriptReference("FileUploadReference", 1.0, "jwebswing-angular-file-upload/file-upload/js/jquery.fileupload.min.js"),
+	                    new CSSReference("FileUploadReferenceCSS", 1.0, "jwebswing-angular-file-upload/file-upload/css/jquery.fileupload.min.css")),
+
+	FileUploadAudioReference(new JavascriptReference("FileUploadAudioReference", 1.0, "jwebswing-angular-file-upload/file-upload/js/jquery.fileupload-audio.min.js"),
 	                         null),
-	
-	FileUploadImageReference(new JavascriptReference("FileUploadImageReference", 1.0, "jwebswing-angular-file-upload/file-upload/js/jquery.fileupload-image.js"),
+
+	FileUploadImageReference(new JavascriptReference("FileUploadImageReference", 1.0, "jwebswing-angular-file-upload/file-upload/js/jquery.fileupload-image.min.js"),
 	                         null),
-	FileUploadProcessReference(new JavascriptReference("FileUploadProcessReference", 1.0, "jwebswing-angular-file-upload/file-upload/js/jquery.fileupload-process.js"),
+	FileUploadProcessReference(new JavascriptReference("FileUploadProcessReference", 1.0, "jwebswing-angular-file-upload/file-upload/js/jquery.fileupload-process.min.js"),
 	                           null),
-	FileUploadValidateReference(new JavascriptReference("FileUploadValidateReference", 1.0, "jwebswing-angular-file-upload/file-upload/js/jquery.fileupload-validate.js"),
+	FileUploadValidateReference(new JavascriptReference("FileUploadValidateReference", 1.0, "jwebswing-angular-file-upload/file-upload/js/jquery.fileupload-validate.min.js"),
 	                            null),
-	FileUploadIFrameTransportReference(new JavascriptReference("FileUploadIFrameTransportReference", 1.0, "jwebswing-angular-file-upload/file-upload/js/jquery.iframe-transport.js"),
+	FileUploadIFrameTransportReference(new JavascriptReference("FileUploadIFrameTransportReference", 1.0, "jwebswing-angular-file-upload/file-upload/js/jquery.iframe-transport.min.js"),
 	                                   null),
-	FileUploadVideoReference(new JavascriptReference("FileUploadVideoReference", 1.0, "jwebswing-angular-file-upload/file-upload/js/jquery.fileupload-video.js"),
+	FileUploadVideoReference(new JavascriptReference("FileUploadVideoReference", 1.0, "jwebswing-angular-file-upload/file-upload/js/jquery.fileupload-video.min.js"),
 	                         null),
 
 
-	FileUploadUIReference(new JavascriptReference("FileUploadUIReference", 1.0, "jwebswing-angular-file-upload/file-upload/js/jquery.fileupload-ui.js"),
-	                      new CSSReference("angularFileUploadReference", 1.0, "jwebswing-angular-file-upload/file-upload/css/jquery.fileupload-ui.css")),;
+	FileUploadUIReference(new JavascriptReference("FileUploadUIReference", 1.0, "jwebswing-angular-file-upload/file-upload/js/jquery.fileupload-ui.min.js"),
+	                      new CSSReference("angularFileUploadReference", 1.0, "jwebswing-angular-file-upload/file-upload/css/jquery.fileupload-ui.min.css")),;
 	/**
 	 * The actual javascript
 	 */
@@ -103,14 +106,14 @@ public enum AngularFileUploadReferencePool implements ReferencePool
 	 * The actual css reference
 	 */
 	private CSSReference cssReference;
-	
+
 	/**
 	 * Constructs a reference pool
 	 */
 	AngularFileUploadReferencePool()
 	{
 	}
-	
+
 	/**
 	 * Constructs a new reference pool
 	 *
@@ -122,7 +125,7 @@ public enum AngularFileUploadReferencePool implements ReferencePool
 		this.javaScriptReference = javaScriptReference;
 		this.cssReference = cssReference;
 	}
-	
+
 	/**
 	 * Returns the javascript reference
 	 *
@@ -133,7 +136,7 @@ public enum AngularFileUploadReferencePool implements ReferencePool
 	{
 		return javaScriptReference;
 	}
-	
+
 	/**
 	 * Sets the javascript reference
 	 *
@@ -144,7 +147,7 @@ public enum AngularFileUploadReferencePool implements ReferencePool
 	{
 		this.javaScriptReference = javaScriptReference;
 	}
-	
+
 	/**
 	 * Gets the cSS reference
 	 *
@@ -155,7 +158,7 @@ public enum AngularFileUploadReferencePool implements ReferencePool
 	{
 		return cssReference;
 	}
-	
+
 	/**
 	 * Sets the CSS Reference
 	 *

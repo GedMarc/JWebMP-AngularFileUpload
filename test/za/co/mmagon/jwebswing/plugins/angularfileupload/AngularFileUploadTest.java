@@ -6,10 +6,14 @@ import za.co.mmagon.jwebswing.Page;
 
 public class AngularFileUploadTest extends BaseTestClass
 {
+
 	@Test
 	public void testPage()
 	{
 		Page p = getInstance();
+		p.getOptions().setDynamicRender(false);
 		System.out.println(p.toString(0));
 	}
+
+
 }
