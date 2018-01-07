@@ -166,8 +166,8 @@ public class AngularFileUploadPageConfigurator extends PageConfigurator
 
 	private void registerModules(Page page)
 	{
-		JQueryPageConfigurator.setRequired(page.getBody(), true);
-		AngularPageConfigurator.setRequired(page.getBody(), true);
+		JQueryPageConfigurator.setRequired(true);
+		AngularPageConfigurator.setRequired(true);
 		page.getAngular().getAngularModules().add(new AngularFileUploadModule());
 		page.getAngular().getAngularModules().add(new AngularBlueImpFileUploadModule());
 		page.getAngular().getAngularDirectives().add(new AngularFileUploadDirective());
