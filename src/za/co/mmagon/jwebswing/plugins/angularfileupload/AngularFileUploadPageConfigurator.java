@@ -60,25 +60,19 @@ public class AngularFileUploadPageConfigurator extends PageConfigurator
 			page.getBody().add(getGalleryDiv());
 
 			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.TemplatesReference.getJavaScriptReference());
-			page.getBody().addCssReference(AngularFileUploadReferencePool.TemplatesReference.getCssReference());
 
 			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.LoadImageJCropReference.getJavaScriptReference());
 			page.getBody().addCssReference(AngularFileUploadReferencePool.LoadImageJCropReference.getCssReference());
 
 			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.LoadImageReference.getJavaScriptReference());
-			page.getBody().addCssReference(AngularFileUploadReferencePool.LoadImageReference.getCssReference());
 
 			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.LoadImageMetaReference.getJavaScriptReference());
-			page.getBody().addCssReference(AngularFileUploadReferencePool.LoadImageMetaReference.getCssReference());
 
 			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.LoadImageExifReference.getJavaScriptReference());
-			page.getBody().addCssReference(AngularFileUploadReferencePool.LoadImageExifReference.getCssReference());
 
 			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.LoadImageExifMapReference.getJavaScriptReference());
-			page.getBody().addCssReference(AngularFileUploadReferencePool.LoadImageExifMapReference.getCssReference());
 
 			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.CanvasToBlobReference.getJavaScriptReference());
-			page.getBody().addCssReference(AngularFileUploadReferencePool.CanvasToBlobReference.getCssReference());
 
 			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.GalleryReference.getJavaScriptReference());
 			page.getBody().addCssReference(AngularFileUploadReferencePool.GalleryReference.getCssReference());
@@ -90,34 +84,25 @@ public class AngularFileUploadPageConfigurator extends PageConfigurator
 			page.getBody().addCssReference(AngularFileUploadReferencePool.GalleryVideoReference.getCssReference());
 
 			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.GalleryVimeoReference.getJavaScriptReference());
-			page.getBody().addCssReference(AngularFileUploadReferencePool.GalleryVimeoReference.getCssReference());
 
 			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.GalleryYoutubeReference.getJavaScriptReference());
-			page.getBody().addCssReference(AngularFileUploadReferencePool.GalleryYoutubeReference.getCssReference());
 
 			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.GalleryHelperReference.getJavaScriptReference());
-			page.getBody().addCssReference(AngularFileUploadReferencePool.GalleryHelperReference.getCssReference());
 
 			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.FileUploadIFrameTransportReference.getJavaScriptReference());
-			page.getBody().addCssReference(AngularFileUploadReferencePool.FileUploadIFrameTransportReference.getCssReference());
 
 			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.FileUploadReference.getJavaScriptReference());
 			page.getBody().addCssReference(AngularFileUploadReferencePool.FileUploadReference.getCssReference());
 
 			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.FileUploadProcessReference.getJavaScriptReference());
-			page.getBody().addCssReference(AngularFileUploadReferencePool.FileUploadProcessReference.getCssReference());
 
 			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.FileUploadAudioReference.getJavaScriptReference());
-			page.getBody().addCssReference(AngularFileUploadReferencePool.FileUploadAudioReference.getCssReference());
 
 			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.FileUploadImageReference.getJavaScriptReference());
-			page.getBody().addCssReference(AngularFileUploadReferencePool.FileUploadImageReference.getCssReference());
 
 			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.FileUploadValidateReference.getJavaScriptReference());
-			page.getBody().addCssReference(AngularFileUploadReferencePool.FileUploadValidateReference.getCssReference());
 
 			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.FileUploadVideoReference.getJavaScriptReference());
-			page.getBody().addCssReference(AngularFileUploadReferencePool.FileUploadVideoReference.getCssReference());
 
 			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.FileUploadUIReference.getJavaScriptReference());
 			page.getBody().addCssReference(AngularFileUploadReferencePool.FileUploadUIReference.getCssReference());
