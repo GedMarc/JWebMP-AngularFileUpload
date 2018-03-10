@@ -9,7 +9,8 @@ import za.co.mmagon.jwebswing.base.angular.directives.AngularDirectiveBase;
  * @author Marc Magon
  * @since 30 May 2017
  */
-class AngularFileUploadDirective extends AngularDirectiveBase
+public class AngularFileUploadDirective
+		extends AngularDirectiveBase
 {
 
 	private static final long serialVersionUID = 1L;
@@ -25,6 +26,7 @@ class AngularFileUploadDirective extends AngularDirectiveBase
 	@Override
 	public String renderFunction()
 	{
-		return FileTemplates.getFileTemplate(AngularFileUploadDirective.class, "AngularFileUploadDirective", "angularfileuploaddirective").toString();
+		return FileTemplates.getFileTemplate(AngularFileUploadDirective.class, "AngularFileUploadDirective", "angularfileuploaddirective")
+		                    .toString();
 	}
 }
