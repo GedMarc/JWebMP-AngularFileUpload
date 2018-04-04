@@ -97,7 +97,11 @@ public enum AngularFileUploadReferencePool implements ReferencePool
 
 
 	FileUploadUIReference(new JavascriptReference("FileUploadUIReference", 1.0, "jwebswing-angular-file-upload/file-upload/js/jquery.fileupload-ui.min.js"),
-	                      new CSSReference("angularFileUploadReference", 1.0, "jwebswing-angular-file-upload/file-upload/css/jquery.fileupload-ui.min.css")),;
+	                      new CSSReference("angularFileUploadReference", 1.0, "jwebswing-angular-file-upload/file-upload/css/jquery.fileupload-ui.min.css")),
+
+	FileUploadAngularReference(new JavascriptReference("FileUploadAngularReference", 1.0, "jwebswing-angular-file-upload/file-upload/js/jquery" +
+		".fileupload-angular" +
+		".min.js"),null);
 	/**
 	 * The actual javascript
 	 */

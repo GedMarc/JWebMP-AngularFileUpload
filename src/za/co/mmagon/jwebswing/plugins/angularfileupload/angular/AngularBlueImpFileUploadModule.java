@@ -1,4 +1,4 @@
-package za.co.mmagon.jwebswing.plugins.angularfileupload;
+package za.co.mmagon.jwebswing.plugins.angularfileupload.angular;
 
 import za.co.mmagon.jwebswing.base.angular.modules.AngularModuleBase;
 
@@ -8,7 +8,7 @@ import za.co.mmagon.jwebswing.base.angular.modules.AngularModuleBase;
  * @author Marc Magon
  * @since 08 Jun 2017
  */
-class AngularFileUploadModule extends AngularModuleBase
+public class AngularBlueImpFileUploadModule extends AngularModuleBase
 {
 
 	private static final long serialVersionUID = 1L;
@@ -16,9 +16,9 @@ class AngularFileUploadModule extends AngularModuleBase
 	/*
 	 * Constructs a new AngularRouteModule
 	 */
-	public AngularFileUploadModule()
+	public AngularBlueImpFileUploadModule()
 	{
-		super("ng-file-model");
+		super("blueimp.fileupload");
 	}
 
 	@Override

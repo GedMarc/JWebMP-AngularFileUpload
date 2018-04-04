@@ -13,12 +13,14 @@ public class AngularFileUploadBinder extends GuiceSiteBinder
 {
 	private static final java.util.logging.Logger log = LogFactory.getLog("AngularFileUpload");
 
+	public static final String BLUEIMP_FILEUPLOAD_SERVLETURL = "blueimpangularfileupload";
+	
 	@Override
 	public void onBind(GuiceSiteInjectorModule module)
 	{
-		module.serveRegex$("(" + "/angularfileupload" + ")" + QUERY_PARAMETERS_REGEX).with(AngularFileServlet.class);
+		module.serveRegex$("(" + "/" + BLUEIMP_FILEUPLOAD_SERVLETURL + ")" + QUERY_PARAMETERS_REGEX).with(AngularFileServlet.class);
 
 
-		log.log(Level.INFO, "Serving File Uploads at {0}", "/angularfileupload");
+		log.log(Level.INFO, "Serving File Uploads at {0}", "/" + BLUEIMP_FILEUPLOAD_SERVLETURL);
 	}
 }

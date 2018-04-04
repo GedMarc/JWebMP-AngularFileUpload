@@ -9,6 +9,9 @@ import za.co.mmagon.jwebswing.base.html.H3;
 import za.co.mmagon.jwebswing.base.html.Link;
 import za.co.mmagon.jwebswing.base.html.List;
 import za.co.mmagon.jwebswing.plugins.PluginInformation;
+import za.co.mmagon.jwebswing.plugins.angularfileupload.angular.AngularBlueImpFileUploadModule;
+import za.co.mmagon.jwebswing.plugins.angularfileupload.angular.BlueImpFileDestroyController;
+import za.co.mmagon.jwebswing.plugins.angularfileupload.options.BlueImpFileUploadDefaultOptions;
 import za.co.mmagon.jwebswing.plugins.jquery.JQueryPageConfigurator;
 
 import javax.validation.constraints.NotNull;
@@ -35,11 +38,13 @@ import javax.validation.constraints.NotNull;
 public class AngularFileUploadPageConfigurator
 		extends PageConfigurator
 {
-	private static FileUploadDefaultOptions defaultOptions;
+	private static BlueImpFileUploadDefaultOptions defaultOptions;
 	/**
 	 * The div for the gallery
 	 */
 	private Div galleryDiv;
+	
+	private static boolean renderJqueryUI;
 
 	/**
 	 * Configures the page for this component
@@ -55,11 +60,11 @@ public class AngularFileUploadPageConfigurator
 	 * @return
 	 */
 	@NotNull
-	public static FileUploadDefaultOptions getDefaultOptions()
+	public static BlueImpFileUploadDefaultOptions getDefaultOptions()
 	{
 		if (defaultOptions == null)
 		{
-			defaultOptions = new FileUploadDefaultOptions();
+			defaultOptions = new BlueImpFileUploadDefaultOptions();
 		}
 		return defaultOptions;
 	}
@@ -69,7 +74,7 @@ public class AngularFileUploadPageConfigurator
 	 *
 	 * @param defaultOptions
 	 */
-	public static void setDefaultOptions(FileUploadDefaultOptions defaultOptions)
+	public static void setDefaultOptions(BlueImpFileUploadDefaultOptions defaultOptions)
 	{
 		AngularFileUploadPageConfigurator.defaultOptions = defaultOptions;
 	}
@@ -86,79 +91,84 @@ public class AngularFileUploadPageConfigurator
 			    .add(getGalleryDiv());
 
 			page.getBody()
-			    .addJavaScriptReference(AngularFileUploadReferencePool.TemplatesReference.getJavaScriptReference());
+			    .addJavaScriptReference(AngularFileUploadReferencePool.TemplatesReference.getJavaScriptReference().setSortOrder(200));
 
 			page.getBody()
-			    .addJavaScriptReference(AngularFileUploadReferencePool.LoadImageJCropReference.getJavaScriptReference());
+			    .addJavaScriptReference(AngularFileUploadReferencePool.LoadImageJCropReference.getJavaScriptReference().setSortOrder(201));
 			page.getBody()
-			    .addCssReference(AngularFileUploadReferencePool.LoadImageJCropReference.getCssReference());
+			    .addCssReference(AngularFileUploadReferencePool.LoadImageJCropReference.getCssReference().setSortOrder(202));
 
 			page.getBody()
-			    .addJavaScriptReference(AngularFileUploadReferencePool.LoadImageReference.getJavaScriptReference());
+			    .addJavaScriptReference(AngularFileUploadReferencePool.LoadImageReference.getJavaScriptReference().setSortOrder(203));
 
 			page.getBody()
-			    .addJavaScriptReference(AngularFileUploadReferencePool.LoadImageMetaReference.getJavaScriptReference());
+			    .addJavaScriptReference(AngularFileUploadReferencePool.LoadImageMetaReference.getJavaScriptReference().setSortOrder(204));
 
 			page.getBody()
-			    .addJavaScriptReference(AngularFileUploadReferencePool.LoadImageExifReference.getJavaScriptReference());
+			    .addJavaScriptReference(AngularFileUploadReferencePool.LoadImageExifReference.getJavaScriptReference().setSortOrder(205));
 
 			page.getBody()
-			    .addJavaScriptReference(AngularFileUploadReferencePool.LoadImageExifMapReference.getJavaScriptReference());
+			    .addJavaScriptReference(AngularFileUploadReferencePool.LoadImageExifMapReference.getJavaScriptReference().setSortOrder(206));
 
 			page.getBody()
-			    .addJavaScriptReference(AngularFileUploadReferencePool.CanvasToBlobReference.getJavaScriptReference());
+			    .addJavaScriptReference(AngularFileUploadReferencePool.CanvasToBlobReference.getJavaScriptReference().setSortOrder(207));
 
 			page.getBody()
-			    .addJavaScriptReference(AngularFileUploadReferencePool.GalleryReference.getJavaScriptReference());
+			    .addJavaScriptReference(AngularFileUploadReferencePool.GalleryReference.getJavaScriptReference().setSortOrder(208));
 			page.getBody()
-			    .addCssReference(AngularFileUploadReferencePool.GalleryReference.getCssReference());
+			    .addCssReference(AngularFileUploadReferencePool.GalleryReference.getCssReference().setSortOrder(209));
 
 			page.getBody()
-			    .addJavaScriptReference(AngularFileUploadReferencePool.GalleryIndicatorReference.getJavaScriptReference());
+			    .addJavaScriptReference(AngularFileUploadReferencePool.GalleryIndicatorReference.getJavaScriptReference().setSortOrder(210));
 			page.getBody()
-			    .addCssReference(AngularFileUploadReferencePool.GalleryIndicatorReference.getCssReference());
+			    .addCssReference(AngularFileUploadReferencePool.GalleryIndicatorReference.getCssReference().setSortOrder(211));
 
 			page.getBody()
-			    .addJavaScriptReference(AngularFileUploadReferencePool.GalleryVideoReference.getJavaScriptReference());
+			    .addJavaScriptReference(AngularFileUploadReferencePool.GalleryVideoReference.getJavaScriptReference().setSortOrder(212));
 			page.getBody()
-			    .addCssReference(AngularFileUploadReferencePool.GalleryVideoReference.getCssReference());
+			    .addCssReference(AngularFileUploadReferencePool.GalleryVideoReference.getCssReference().setSortOrder(213));
 
 			page.getBody()
-			    .addJavaScriptReference(AngularFileUploadReferencePool.GalleryVimeoReference.getJavaScriptReference());
+			    .addJavaScriptReference(AngularFileUploadReferencePool.GalleryVimeoReference.getJavaScriptReference().setSortOrder(214));
 
 			page.getBody()
-			    .addJavaScriptReference(AngularFileUploadReferencePool.GalleryYoutubeReference.getJavaScriptReference());
+			    .addJavaScriptReference(AngularFileUploadReferencePool.GalleryYoutubeReference.getJavaScriptReference().setSortOrder(215));
 
 			page.getBody()
-			    .addJavaScriptReference(AngularFileUploadReferencePool.GalleryHelperReference.getJavaScriptReference());
+			    .addJavaScriptReference(AngularFileUploadReferencePool.GalleryHelperReference.getJavaScriptReference().setSortOrder(216));
 
 			page.getBody()
-			    .addJavaScriptReference(AngularFileUploadReferencePool.FileUploadIFrameTransportReference.getJavaScriptReference());
+			    .addJavaScriptReference(AngularFileUploadReferencePool.FileUploadIFrameTransportReference.getJavaScriptReference().setSortOrder(217));
 
 			page.getBody()
-			    .addJavaScriptReference(AngularFileUploadReferencePool.FileUploadReference.getJavaScriptReference());
+			    .addJavaScriptReference(AngularFileUploadReferencePool.FileUploadReference.getJavaScriptReference().setSortOrder(218));
 			page.getBody()
-			    .addCssReference(AngularFileUploadReferencePool.FileUploadReference.getCssReference());
+			    .addCssReference(AngularFileUploadReferencePool.FileUploadReference.getCssReference().setSortOrder(219));
 
 			page.getBody()
-			    .addJavaScriptReference(AngularFileUploadReferencePool.FileUploadProcessReference.getJavaScriptReference());
+			    .addJavaScriptReference(AngularFileUploadReferencePool.FileUploadProcessReference.getJavaScriptReference().setSortOrder(220));
 
 			page.getBody()
-			    .addJavaScriptReference(AngularFileUploadReferencePool.FileUploadAudioReference.getJavaScriptReference());
+			    .addJavaScriptReference(AngularFileUploadReferencePool.FileUploadAudioReference.getJavaScriptReference().setSortOrder(221));
 
 			page.getBody()
-			    .addJavaScriptReference(AngularFileUploadReferencePool.FileUploadImageReference.getJavaScriptReference());
+			    .addJavaScriptReference(AngularFileUploadReferencePool.FileUploadImageReference.getJavaScriptReference().setSortOrder(222));
 
 			page.getBody()
-			    .addJavaScriptReference(AngularFileUploadReferencePool.FileUploadValidateReference.getJavaScriptReference());
+			    .addJavaScriptReference(AngularFileUploadReferencePool.FileUploadValidateReference.getJavaScriptReference().setSortOrder(223));
 
 			page.getBody()
-			    .addJavaScriptReference(AngularFileUploadReferencePool.FileUploadVideoReference.getJavaScriptReference());
+			    .addJavaScriptReference(AngularFileUploadReferencePool.FileUploadVideoReference.getJavaScriptReference().setSortOrder(224));
 
-			page.getBody()
-			    .addJavaScriptReference(AngularFileUploadReferencePool.FileUploadUIReference.getJavaScriptReference());
-			page.getBody()
-			    .addCssReference(AngularFileUploadReferencePool.FileUploadUIReference.getCssReference());
+			if(renderJqueryUI) {
+				page.getBody()
+					.addJavaScriptReference(AngularFileUploadReferencePool.FileUploadUIReference.getJavaScriptReference().setSortOrder(225));
+				page.getBody()
+					.addCssReference(AngularFileUploadReferencePool.FileUploadUIReference.getCssReference().setSortOrder(226));
+			}
+			
+			page.getBody().addJavaScriptReference(AngularFileUploadReferencePool.FileUploadAngularReference.getJavaScriptReference().setSortOrder
+				(227));
 		}
 		return page;
 	}
@@ -170,12 +180,12 @@ public class AngularFileUploadPageConfigurator
 
 		page.getAngular()
 		    .getAngularModules()
-		    .add(new AngularFileUploadModule());
-
-		page.getAngular()
-		    .getAngularModules()
 		    .add(new AngularBlueImpFileUploadModule());
 
+		page.getAngular()
+			.getAngularControllers()
+			.add(new BlueImpFileDestroyController());
+		
 		page.getAngular()
 		    .getAngularConfigurations()
 		    .add(new AngularFileUploadDataBinderConfigurationBase());
@@ -218,5 +228,13 @@ public class AngularFileUploadPageConfigurator
 			this.galleryDiv.add(new Link().addClass("play-pause"));
 			this.galleryDiv.add(new List<>(true).addClass("indicator"));
 		}
+	}
+
+	public static boolean isRenderJqueryUI() {
+		return renderJqueryUI;
+	}
+
+	public static void setRenderJqueryUI(boolean renderJqueryUI) {
+		AngularFileUploadPageConfigurator.renderJqueryUI = renderJqueryUI;
 	}
 }
