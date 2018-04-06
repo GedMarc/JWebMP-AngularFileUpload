@@ -4,7 +4,7 @@
 
     <groupId>za.co.mmagon</groupId>
     <artifactId>jwebswing-angular-file-upload</artifactId>
-    <version>0.0.0_0-SNAPSHOT</version>
+    <version>0.0.0_0</version>
     <packaging>jar</packaging>
 
     <name>Angular File Upload</name>
@@ -23,13 +23,13 @@
             <url>https://jwebswing.com/artifactory/libs-snapshot</url>
         </repository>
     </repositories>
-	
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <src.dir>src</src.dir>
         <test.dir>test</test.dir>
         <additionalparam>-Xdoclint:none</additionalparam>
-	    
+
         <maven.jar.version>3.0.2</maven.jar.version>
         <maven.dependency.version>3.0.1</maven.dependency.version>
         <maven.javadoc.version>2.10.4</maven.javadoc.version>
@@ -37,22 +37,22 @@
         <maven.resources.version>3.0.2</maven.resources.version>
         <netbeans.hint.license>gpl30</netbeans.hint.license>
 
-	    <surefire-plugin.version>2.18.1</surefire-plugin.version>
-	    <failsafe-plugin.version>2.18.1</failsafe-plugin.version>
+        <surefire-plugin.version>2.18.1</surefire-plugin.version>
+        <failsafe-plugin.version>2.18.1</failsafe-plugin.version>
 
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <sonar.host.url>https://jwebswing.com/sonar</sonar.host.url>
         <sonar.exclusions>**bower_components</sonar.exclusions>
 
-	    <skipTests>false</skipTests>
-	    <skipITs>true</skipITs>
-	    <skip.unit.tests>false</skip.unit.tests>
-	    <testArgLine></testArgLine>
-	    <surefireArgLine></surefireArgLine>
-	    
+        <skipTests>false</skipTests>
+        <skipITs>true</skipITs>
+        <skip.unit.tests>false</skip.unit.tests>
+        <testArgLine></testArgLine>
+        <surefireArgLine></surefireArgLine>
+
     </properties>
-	
+
 
     <build>
         <sourceDirectory>${src.dir}</sourceDirectory>
@@ -88,119 +88,119 @@
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.7.9</version>
 
-	            <executions>
-		            <execution>
-			            <id>pre-unit-test</id>
-			            <goals>
-				            <goal>prepare-agent</goal>
-			            </goals>
-			            <configuration>
-				            <destFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</destFile>
-				            <propertyName>surefireArgLine</propertyName>
-			            </configuration>
-		            </execution>
-		            <execution>
-			            <id>pre-integration-test</id>
-			            <goals>
-				            <goal>prepare-agent-integration</goal>
-			            </goals>
-			            <configuration>
-				            <destFile>${project.build.directory}/coverage-reports/jacoco-it.exec</destFile>
-				            <propertyName>testArgLine</propertyName>
-			            </configuration>
-		            </execution>
+                <executions>
+                    <execution>
+                        <id>pre-unit-test</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                        <configuration>
+                            <destFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</destFile>
+                            <propertyName>surefireArgLine</propertyName>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>pre-integration-test</id>
+                        <goals>
+                            <goal>prepare-agent-integration</goal>
+                        </goals>
+                        <configuration>
+                            <destFile>${project.build.directory}/coverage-reports/jacoco-it.exec</destFile>
+                            <propertyName>testArgLine</propertyName>
+                        </configuration>
+                    </execution>
 
-		            <execution>
-			            <id>post-integration-test</id>
-			            <phase>post-integration-test</phase>
-			            <goals>
-				            <goal>report</goal>
-			            </goals>
-			            <configuration>
-				            <dataFile>${project.build.directory}/coverage-reports/jacoco-it.exec</dataFile>
-				            <outputDirectory>${project.reporting.outputDirectory}/jacoco-it</outputDirectory>
-			            </configuration>
-		            </execution>
-		            <execution>
-			            <id>post-unit-test</id>
-			            <phase>prepare-package</phase>
-			            <goals>
-				            <goal>report</goal>
-			            </goals>
-			            <configuration>
-				            <dataFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</dataFile>
-				            <outputDirectory>${project.reporting.outputDirectory}/jacoco-ut</outputDirectory>
-			            </configuration>
-		            </execution>
-		            <execution>
-			            <id>merge-results</id>
-			            <phase>verify</phase>
-			            <goals>
-				            <goal>merge</goal>
-			            </goals>
-			            <configuration>
-				            <fileSets>
-					            <fileSet>
-						            <directory>${project.build.directory}/coverage-reports</directory>
-						            <includes>
-							            <include>*.exec</include>
-						            </includes>
-					            </fileSet>
-				            </fileSets>
-				            <destFile>${project.build.directory}/coverage-reports/aggregate.exec</destFile>
-			            </configuration>
-		            </execution>
-		            <execution>
-			            <id>post-merge-report</id>
-			            <phase>verify</phase>
-			            <goals>
-				            <goal>report</goal>
-			            </goals>
-			            <configuration>
-				            <dataFile>${project.build.directory}/coverage-reports/aggregate.exec</dataFile>
-				            <outputDirectory>${project.reporting.outputDirectory}/jacoco-aggregate</outputDirectory>
-			            </configuration>
-		            </execution>
-	            </executions>
-	            
+                    <execution>
+                        <id>post-integration-test</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                        <configuration>
+                            <dataFile>${project.build.directory}/coverage-reports/jacoco-it.exec</dataFile>
+                            <outputDirectory>${project.reporting.outputDirectory}/jacoco-it</outputDirectory>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>post-unit-test</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                        <configuration>
+                            <dataFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</dataFile>
+                            <outputDirectory>${project.reporting.outputDirectory}/jacoco-ut</outputDirectory>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>merge-results</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>merge</goal>
+                        </goals>
+                        <configuration>
+                            <fileSets>
+                                <fileSet>
+                                    <directory>${project.build.directory}/coverage-reports</directory>
+                                    <includes>
+                                        <include>*.exec</include>
+                                    </includes>
+                                </fileSet>
+                            </fileSets>
+                            <destFile>${project.build.directory}/coverage-reports/aggregate.exec</destFile>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>post-merge-report</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                        <configuration>
+                            <dataFile>${project.build.directory}/coverage-reports/aggregate.exec</dataFile>
+                            <outputDirectory>${project.reporting.outputDirectory}/jacoco-aggregate</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+
             </plugin>
-	        
-	        <!-- UT/IT Controlled Execution -->
-	        <plugin>
-		        <groupId>org.apache.maven.plugins</groupId>
-		        <artifactId>maven-failsafe-plugin</artifactId>
-		        <version>2.19.1</version>
-		        <configuration>
-			        <skipTests>${skipTests}</skipTests>
-			        <skipITs>${skipITs}</skipITs>
-			        <argLine>${testArgLine}</argLine>
-			        <excludes>
-				        <exclude>**/*UT*.java</exclude>
-			        </excludes>
-		        </configuration>
-		        <executions>
-			        <execution>
-				        <goals>
-					        <goal>integration-test</goal>
-					        <goal>verify</goal>
-				        </goals>
-			        </execution>
-		        </executions>
-	        </plugin>
-	        <plugin>
-		        <groupId>org.apache.maven.plugins</groupId>
-		        <artifactId>maven-surefire-plugin</artifactId>
-		        <configuration>
-			        <argLine>${surefireArgLine}</argLine>
-			        <skipTests>${skip.unit.tests}</skipTests>
-			        <includes>
-				        <include>**/*UT.java</include>
-				        <include>**/*MT.java</include>
-				        <include>**/*Test.java</include>
-			        </includes>
-			        <skipTests>${skipUTMTs}</skipTests>
-		        </configuration>
-	        </plugin>
+
+            <!-- UT/IT Controlled Execution -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.19.1</version>
+                <configuration>
+                    <skipTests>${skipTests}</skipTests>
+                    <skipITs>${skipITs}</skipITs>
+                    <argLine>${testArgLine}</argLine>
+                    <excludes>
+                        <exclude>**/*UT*.java</exclude>
+                    </excludes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <argLine>${surefireArgLine}</argLine>
+                    <skipTests>${skip.unit.tests}</skipTests>
+                    <includes>
+                        <include>**/*UT.java</include>
+                        <include>**/*MT.java</include>
+                        <include>**/*Test.java</include>
+                    </includes>
+                    <skipTests>${skipUTMTs}</skipTests>
+                </configuration>
+            </plugin>
 
         </plugins>
 
@@ -236,18 +236,18 @@
 
     <dependencies>
 
-	    <dependency>
-		    <groupId>commons-fileupload</groupId>
-		    <artifactId>commons-fileupload</artifactId>
-		    <version>1.3</version>
-	    </dependency>
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>1.3</version>
+        </dependency>
 
-	    <dependency>
-		    <groupId>org.apache.tika</groupId>
-		    <artifactId>tika-core</artifactId>
-		    <version>1.17</version>
-	    </dependency>
-	    
+        <dependency>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-core</artifactId>
+            <version>1.17</version>
+        </dependency>
+
 
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -288,7 +288,7 @@
             <version>${project.version}</version>
             <type>jar</type>
         </dependency>
-	    
+
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>jwebswing-bootstrap4</artifactId>
@@ -296,70 +296,70 @@
             <type>jar</type>
         </dependency>
 
-	    <!--  Integration Tests -->
+        <!--  Integration Tests -->
 
-	    <dependency>
-		    <groupId>za.co.mmagon</groupId>
-		    <artifactId>jwebswing-undertow</artifactId>
-		    <version>${project.version}</version>
-		    <scope>test</scope>
-	    </dependency>
+        <dependency>
+            <groupId>za.co.mmagon</groupId>
+            <artifactId>jwebswing-undertow</artifactId>
+            <version>${project.version}</version>
+            <scope>test</scope>
+        </dependency>
 
-	    <dependency>
-		    <groupId>za.co.mmagon</groupId>
-		    <artifactId>jwebswing-atmospherepush-undertow</artifactId>
-		    <version>${project.version}</version>
-		    <scope>test</scope>
-	    </dependency>
+        <dependency>
+            <groupId>za.co.mmagon</groupId>
+            <artifactId>jwebswing-atmospherepush-undertow</artifactId>
+            <version>${project.version}</version>
+            <scope>test</scope>
+        </dependency>
 
-	    <dependency>
-		    <groupId>io.undertow</groupId>
-		    <artifactId>undertow-websockets-jsr</artifactId>
-		    <version>1.4.21.Final</version>
-		    <scope>test</scope>
-	    </dependency>
+        <dependency>
+            <groupId>io.undertow</groupId>
+            <artifactId>undertow-websockets-jsr</artifactId>
+            <version>1.4.21.Final</version>
+            <scope>test</scope>
+        </dependency>
 
-	    <dependency>
-		    <groupId>io.undertow</groupId>
-		    <artifactId>undertow-core</artifactId>
-		    <version>1.4.21.Final</version>
-		    <scope>test</scope>
-	    </dependency>
+        <dependency>
+            <groupId>io.undertow</groupId>
+            <artifactId>undertow-core</artifactId>
+            <version>1.4.21.Final</version>
+            <scope>test</scope>
+        </dependency>
 
-	    <dependency>
-		    <groupId>io.undertow</groupId>
-		    <artifactId>undertow-servlet</artifactId>
-		    <version>1.4.21.Final</version>
-		    <scope>test</scope>
-		    
-	    </dependency>
+        <dependency>
+            <groupId>io.undertow</groupId>
+            <artifactId>undertow-servlet</artifactId>
+            <version>1.4.21.Final</version>
+            <scope>test</scope>
 
-	    <dependency>
-		    <groupId>org.seleniumhq.selenium</groupId>
-		    <artifactId>selenium-support</artifactId>
-		    <version>3.5.3</version>
-		    <type>jar</type>
-		    <scope>test</scope>
-	    </dependency>
-	    <dependency>
-		    <groupId>org.seleniumhq.selenium</groupId>
-		    <artifactId>selenium-firefox-driver</artifactId>
-		    <version>3.5.3</version>
-		    <scope>test</scope>
-		    <type>jar</type>
-	    </dependency>
-	    
-	    <dependency>
-		    <groupId>org.seleniumhq.selenium</groupId>
-		    <artifactId>selenium-api</artifactId>
-		    <version>3.5.3</version>
-		    <scope>test</scope>
-		    <type>jar</type>
-	    </dependency>
-	    
+        </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-support</artifactId>
+            <version>3.5.3</version>
+            <type>jar</type>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-firefox-driver</artifactId>
+            <version>3.5.3</version>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-api</artifactId>
+            <version>3.5.3</version>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
+
     </dependencies>
-	
-	
+
+
     <distributionManagement>
         <snapshotRepository>
             <id>snapshot</id>

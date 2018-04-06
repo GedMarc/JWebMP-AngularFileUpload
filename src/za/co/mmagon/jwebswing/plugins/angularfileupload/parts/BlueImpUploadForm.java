@@ -12,13 +12,16 @@ import static za.co.mmagon.jwebswing.plugins.angularfileupload.AngularFileUpload
  *
  * @param <J>
  */
-public class BlueImpUploadForm<J extends BlueImpUploadForm<J>> extends Form<J> {
+public class BlueImpUploadForm<J extends BlueImpUploadForm<J>>
+		extends Form<J>
+{
 
 	private static final long serialVersionUID = 1L;
 
 	private BlueImpFileUploadOptions options;
 
-	public BlueImpUploadForm() {
+	public BlueImpUploadForm()
+	{
 		addAttribute("action", SessionHelper.getServletUrl() + BLUEIMP_FILEUPLOAD_SERVLETURL);
 		addAttribute("method", "POST");
 		addAttribute("enc-type", "multipart/form-data");
@@ -26,33 +29,56 @@ public class BlueImpUploadForm<J extends BlueImpUploadForm<J>> extends Form<J> {
 		addAttribute("data-ng-class", "{'fileupload-processing': processing() || loadingFiles}");
 	}
 
-	public BlueImpUploadButtonBar addButtonBar() {
+	public BlueImpUploadButtonBar addButtonBar()
+	{
 		BlueImpUploadButtonBar bar = new BlueImpUploadButtonBar();
 		add(bar);
 		return bar;
 	}
 
-	public BlueImpFileUploadTable addDisplayTable() {
+	public BlueImpFileUploadTable addDisplayTable()
+	{
 		BlueImpFileUploadTable bar = new BlueImpFileUploadTable();
 		add(bar);
 		return bar;
 	}
 
 	@Override
-	public void preConfigure() {
-		if (!isConfigured()) {
-			String options = getOptions().toString().replaceAll("\\s", "");
-			if (!options.trim().isEmpty()) {
-				addAttribute(AngularAttributes.ngInit, "options=" + getOptions().toString().replaceAll("\\s", ""));
+	public void preConfigure()
+	{
+		if (!isConfigured())
+		{
+			String optionsString = getOptions().toString()
+			                                   .replaceAll("\\s", "");
+			if (!optionsString.trim()
+			                  .isEmpty())
+			{
+				addAttribute(AngularAttributes.ngInit, "options=" + getOptions().toString()
+				                                                                .replaceAll("\\s", ""));
 			}
 		}
 		super.preConfigure();
 	}
 
-	public BlueImpFileUploadOptions getOptions() {
-		if (options == null) {
+	@Override
+	public BlueImpFileUploadOptions getOptions()
+	{
+		if (options == null)
+		{
 			options = new BlueImpFileUploadOptions();
 		}
 		return options;
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return super.hashCode();
 	}
 }

@@ -1,22 +1,11 @@
 package za.co.mmagon.jwebswing.plugins.angularfileupload.parts;
 
-import javax.validation.constraints.NotNull;
-
 import za.co.mmagon.jwebswing.base.ComponentHierarchyBase;
-import za.co.mmagon.jwebswing.base.html.Button;
-import za.co.mmagon.jwebswing.base.html.Div;
-import za.co.mmagon.jwebswing.base.html.DivSimple;
-import za.co.mmagon.jwebswing.base.html.Image;
-import za.co.mmagon.jwebswing.base.html.Italic;
-import za.co.mmagon.jwebswing.base.html.Link;
-import za.co.mmagon.jwebswing.base.html.Paragraph;
-import za.co.mmagon.jwebswing.base.html.Span;
-import za.co.mmagon.jwebswing.base.html.Strong;
-import za.co.mmagon.jwebswing.base.html.Table;
-import za.co.mmagon.jwebswing.base.html.TableCell;
-import za.co.mmagon.jwebswing.base.html.TableRow;
+import za.co.mmagon.jwebswing.base.html.*;
 import za.co.mmagon.jwebswing.base.html.attributes.GlobalAttributes;
 import za.co.mmagon.jwebswing.plugins.angularfileupload.angular.BlueImpFileDestroyController;
+
+import javax.validation.constraints.NotNull;
 
 import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_EMPTY;
 
@@ -25,7 +14,9 @@ import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_EMPTY;
  *
  * @param <J>
  */
-public class BlueImpFileUploadTable<J extends BlueImpFileUploadTable<J>> extends Table {
+public class BlueImpFileUploadTable<J extends BlueImpFileUploadTable<J>>
+		extends Table
+{
 
 	private final TableRow<?> fileRow;
 	private boolean showThumbnail = true;
@@ -48,7 +39,8 @@ public class BlueImpFileUploadTable<J extends BlueImpFileUploadTable<J>> extends
 	private String cancelButtonText = "Cancel";
 	private String deleteButtonText = "Delete";
 
-	public BlueImpFileUploadTable() {
+	public BlueImpFileUploadTable()
+	{
 		fileRow = new TableRow<>();
 		fileRow.addAttribute("data-ng-repeat", "file in queue");
 		fileRow.addAttribute("data-ng-class", "{'processing': file.$processing()}");
@@ -58,9 +50,12 @@ public class BlueImpFileUploadTable<J extends BlueImpFileUploadTable<J>> extends
 	}
 
 	@Override
-	public void preConfigure() {
-		if (!isConfigured()) {
-			if (isShowThumbnail()) {
+	public void preConfigure()
+	{
+		if (!isConfigured())
+		{
+			if (isShowThumbnail())
+			{
 				TableCell<?> cell = new TableCell<>();
 				cell.addAttribute("data-ng-switch", STRING_EMPTY);
 				cell.addAttribute("data-on", "!!file.thumbnailUrl");
@@ -93,7 +88,8 @@ public class BlueImpFileUploadTable<J extends BlueImpFileUploadTable<J>> extends
 				fileRow.add(cell);
 			}
 
-			if (isShowFileName()) {
+			if (isShowFileName())
+			{
 				TableCell cell = new TableCell();
 
 				Paragraph nameParagraph = new Paragraph();
@@ -142,7 +138,8 @@ public class BlueImpFileUploadTable<J extends BlueImpFileUploadTable<J>> extends
 				fileRow.add(cell);
 			}
 
-			if (isShowFileSize()) {
+			if (isShowFileSize())
+			{
 				TableCell cell = new TableCell();
 				Paragraph fileSize = new Paragraph();
 				fileSize.addClass("size");
@@ -150,7 +147,8 @@ public class BlueImpFileUploadTable<J extends BlueImpFileUploadTable<J>> extends
 
 				cell.add(fileSize);
 
-				if (fileProgressBarComponent != null) {
+				if (fileProgressBarComponent != null)
+				{
 					fileProgressBarComponent.addAttribute("data-ng-class", "{pending: 'in'}[file.$state()]");
 					fileProgressBarComponent.addAttribute("data-file-upload-progress", "file.$progress()");
 					cell.add(fileProgressBarComponent);
@@ -159,11 +157,13 @@ public class BlueImpFileUploadTable<J extends BlueImpFileUploadTable<J>> extends
 				fileRow.add(cell);
 			}
 
-			if (isShowFileButtons()) {
+			if (isShowFileButtons())
+			{
 				TableCell cell = new TableCell();
 
 				Button startButton = new Button<>();
-				if (startButtonClass != null) {
+				if (startButtonClass != null)
+				{
 					startButton.addClass(startButtonClass);
 				}
 				startButton.addClass("start");
@@ -171,7 +171,8 @@ public class BlueImpFileUploadTable<J extends BlueImpFileUploadTable<J>> extends
 				startButton.addAttribute("data-ng-hide", "!file.$submit || options.autoUpload");
 				startButton.addAttribute("data-ng-disabled", "file.$state() == 'pending' || file.$state() == 'rejected'");
 
-				if (startButtonIcon != null) {
+				if (startButtonIcon != null)
+				{
 					Italic i = new Italic<>().addClass(startButtonIcon);
 					startButton.add(i);
 				}
@@ -181,14 +182,16 @@ public class BlueImpFileUploadTable<J extends BlueImpFileUploadTable<J>> extends
 				cell.add(startButton);
 
 				Button cancelButton = new Button<>();
-				if (cancelButtonClass != null) {
+				if (cancelButtonClass != null)
+				{
 					cancelButton.addClass(cancelButtonClass);
 				}
 				cancelButton.addClass("cancel");
 				cancelButton.addAttribute("data-ng-click", "file.$cancel()");
 				cancelButton.addAttribute("data-ng-hide", "!file.$cancel");
 
-				if (cancelButtonIcon != null) {
+				if (cancelButtonIcon != null)
+				{
 					Italic i = new Italic<>().addClass(cancelButtonIcon);
 					cancelButton.add(i);
 				}
@@ -198,7 +201,8 @@ public class BlueImpFileUploadTable<J extends BlueImpFileUploadTable<J>> extends
 				cell.add(cancelButton);
 
 				Button deleteButton = new Button<>();
-				if (deleteButtonClass != null) {
+				if (deleteButtonClass != null)
+				{
 					deleteButton.addClass(deleteButtonClass);
 				}
 				deleteButton.addAttribute("data-ng-controller", BlueImpFileDestroyController.FILE_DESTROY_CONTROLLER_NAME);
@@ -206,7 +210,8 @@ public class BlueImpFileUploadTable<J extends BlueImpFileUploadTable<J>> extends
 				deleteButton.addAttribute("data-ng-click", "file.$destroy()");
 				deleteButton.addAttribute("data-ng-hide", "!file.$destroy");
 
-				if (deleteButtonIcon != null) {
+				if (deleteButtonIcon != null)
+				{
 					Italic i = new Italic<>().addClass(deleteButtonIcon);
 					deleteButton.add(i);
 				}
@@ -222,179 +227,224 @@ public class BlueImpFileUploadTable<J extends BlueImpFileUploadTable<J>> extends
 		super.preConfigure();
 	}
 
-	@NotNull
-	@SuppressWarnings("unchecked")
-	public J applyWidthStyleForProgress(ComponentHierarchyBase componentToDynamicallySetWidth) {
-		componentToDynamicallySetWidth.addAttribute("data-ng-style", "{width: num + '%'}");
-		return (J) this;
-	}
 
-	public TableRow<?> getFileRow() {
-		return fileRow;
-	}
-
-	public boolean isShowThumbnail() {
+	public boolean isShowThumbnail()
+	{
 		return showThumbnail;
 	}
 
 	@NotNull
 	@SuppressWarnings("unchecked")
-	public J setShowThumbnail(boolean showThumbnail) {
+	public J setShowThumbnail(boolean showThumbnail)
+	{
 		this.showThumbnail = showThumbnail;
 		return (J) this;
 	}
 
-	public boolean isShowFileName() {
+	public boolean isShowFileName()
+	{
 		return showFileName;
 	}
 
 	@NotNull
 	@SuppressWarnings("unchecked")
-	public J setShowFileName(boolean showFileName) {
+	public J setShowFileName(boolean showFileName)
+	{
 		this.showFileName = showFileName;
 		return (J) this;
 	}
 
-	public boolean isShowFileSize() {
+	public String getErrorClass()
+	{
+		return errorClass;
+	}
+
+	public boolean isShowFileSize()
+	{
 		return showFileSize;
 	}
 
 	@NotNull
 	@SuppressWarnings("unchecked")
-	public J setShowFileSize(boolean showFileSize) {
+	public J setShowFileSize(boolean showFileSize)
+	{
 		this.showFileSize = showFileSize;
 		return (J) this;
 	}
 
-	public boolean isShowFileButtons() {
+	public boolean isShowFileButtons()
+	{
 		return showFileButtons;
 	}
 
 	@NotNull
 	@SuppressWarnings("unchecked")
-	public J setShowFileButtons(boolean showFileButtons) {
+	public J setShowFileButtons(boolean showFileButtons)
+	{
 		this.showFileButtons = showFileButtons;
 		return (J) this;
 	}
 
-	public String getErrorClass() {
-		return errorClass;
-	}
-
 	@NotNull
 	@SuppressWarnings("unchecked")
-	public J setErrorClass(String errorClass) {
+	public J setErrorClass(String errorClass)
+	{
 		this.errorClass = errorClass;
 		return (J) this;
 	}
 
-	public ComponentHierarchyBase getFileProgressBarComponent() {
+	@NotNull
+	@SuppressWarnings("unchecked")
+	public J applyWidthStyleForProgress(ComponentHierarchyBase componentToDynamicallySetWidth)
+	{
+		componentToDynamicallySetWidth.addAttribute("data-ng-style", "{width: num + '%'}");
+		return (J) this;
+	}
+
+	public TableRow<?> getFileRow()
+	{
+		return fileRow;
+	}
+
+	public ComponentHierarchyBase getFileProgressBarComponent()
+	{
 		return fileProgressBarComponent;
 	}
 
 	@NotNull
 	@SuppressWarnings("unchecked")
-	public J setFileProgressBarComponent(ComponentHierarchyBase fileProgressBarComponent) {
+	public J setFileProgressBarComponent(ComponentHierarchyBase fileProgressBarComponent)
+	{
 		this.fileProgressBarComponent = fileProgressBarComponent;
 		return (J) this;
 	}
 
-	public String getStartButtonClass() {
+	public String getStartButtonClass()
+	{
 		return startButtonClass;
 	}
 
 	@NotNull
 	@SuppressWarnings("unchecked")
-	public J setStartButtonClass(String startButtonClass) {
+	public J setStartButtonClass(String startButtonClass)
+	{
 		this.startButtonClass = startButtonClass;
 		return (J) this;
 	}
 
-	public String getCancelButtonClass() {
+	public String getCancelButtonClass()
+	{
 		return cancelButtonClass;
 	}
 
 	@NotNull
 	@SuppressWarnings("unchecked")
-	public J setCancelButtonClass(String cancelButtonClass) {
+	public J setCancelButtonClass(String cancelButtonClass)
+	{
 		this.cancelButtonClass = cancelButtonClass;
 		return (J) this;
 	}
 
-	public String getDeleteButtonClass() {
+	public String getDeleteButtonClass()
+	{
 		return deleteButtonClass;
 	}
 
 	@NotNull
 	@SuppressWarnings("unchecked")
-	public J setDeleteButtonClass(String deleteButtonClass) {
+	public J setDeleteButtonClass(String deleteButtonClass)
+	{
 		this.deleteButtonClass = deleteButtonClass;
 		return (J) this;
 	}
 
-	public String getStartButtonIcon() {
+	public String getStartButtonIcon()
+	{
 		return startButtonIcon;
 	}
 
 	@NotNull
 	@SuppressWarnings("unchecked")
-	public J setStartButtonIcon(String startButtonIcon) {
+	public J setStartButtonIcon(String startButtonIcon)
+	{
 		this.startButtonIcon = startButtonIcon;
 		return (J) this;
 	}
 
-	public String getCancelButtonIcon() {
+	public String getCancelButtonIcon()
+	{
 		return cancelButtonIcon;
 	}
 
 	@NotNull
 	@SuppressWarnings("unchecked")
-	public J setCancelButtonIcon(String cancelButtonIcon) {
+	public J setCancelButtonIcon(String cancelButtonIcon)
+	{
 		this.cancelButtonIcon = cancelButtonIcon;
 		return (J) this;
 	}
 
-	public String getDeleteButtonIcon() {
+	public String getDeleteButtonIcon()
+	{
 		return deleteButtonIcon;
 	}
 
 	@NotNull
 	@SuppressWarnings("unchecked")
-	public J setDeleteButtonIcon(String deleteButtonIcon) {
+	public J setDeleteButtonIcon(String deleteButtonIcon)
+	{
 		this.deleteButtonIcon = deleteButtonIcon;
 		return (J) this;
 	}
 
-	public String getStartButtonText() {
+	public String getStartButtonText()
+	{
 		return startButtonText;
 	}
 
 	@NotNull
 	@SuppressWarnings("unchecked")
-	public J setStartButtonText(String startButtonText) {
+	public J setStartButtonText(String startButtonText)
+	{
 		this.startButtonText = startButtonText;
 		return (J) this;
 	}
 
-	public String getCancelButtonText() {
+	public String getCancelButtonText()
+	{
 		return cancelButtonText;
 	}
 
 	@NotNull
 	@SuppressWarnings("unchecked")
-	public J setCancelButtonText(String cancelButtonText) {
+	public J setCancelButtonText(String cancelButtonText)
+	{
 		this.cancelButtonText = cancelButtonText;
 		return (J) this;
 	}
 
-	public String getDeleteButtonText() {
+	public String getDeleteButtonText()
+	{
 		return deleteButtonText;
 	}
 
 	@NotNull
 	@SuppressWarnings("unchecked")
-	public J setDeleteButtonText(String deleteButtonText) {
+	public J setDeleteButtonText(String deleteButtonText)
+	{
 		this.deleteButtonText = deleteButtonText;
 		return (J) this;
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return super.hashCode();
 	}
 }
