@@ -1,0 +1,180 @@
+/*
+ * Copyright (C) 2017 Marc Magon
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+package com.jwebmp.plugins.angularfileupload.parts;
+
+import com.jwebmp.base.ComponentHierarchyBase;
+import com.jwebmp.base.html.*;
+import com.jwebmp.base.html.inputs.InputFileType;
+import com.jwebmp.base.html.interfaces.GlobalChildren;
+
+import javax.annotation.Nullable;
+import javax.validation.constraints.NotNull;
+
+import static com.jwebmp.utilities.StaticStrings.HTML_TAB;
+import static com.jwebmp.utilities.StaticStrings.STRING_EMPTY;
+
+public class BlueImpUploadButtonBar<J extends BlueImpUploadButtonBar<J>>
+		extends DivSimple<J>
+{
+
+	private DivSimple<?> buttonBarContainerDiv;
+
+	public BlueImpUploadButtonBar()
+	{
+		addClass("fileupload-buttonbar");
+		buttonBarContainerDiv = new DivSimple<>();
+		add(buttonBarContainerDiv);
+	}
+
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J addAddButton(@Nullable String displayClass, @Nullable String iconClass, @Nullable String label, boolean multiple)
+	{
+		Span<GlobalChildren, ?, ?> span = new Span();
+
+		if (displayClass != null && !displayClass.isEmpty())
+		{
+			span.addClass(displayClass);
+		}
+
+		span.addClass("fileinput-button");
+		span.addAttribute("ng-class", "{disabled: disabled}");
+
+		if (iconClass != null && !iconClass.isEmpty())
+		{
+			Italic i = new Italic();
+			i.addClass(iconClass);
+			span.add(i);
+		}
+
+		if (label != null && !label.isEmpty())
+		{
+			Span labelSpan = new Span();
+			labelSpan.setText(label);
+			span.add(labelSpan);
+		}
+
+		InputFileType<?> fileInput = new InputFileType<>();
+		fileInput.setName("files[]");
+		fileInput.addAttribute("ng-disabled", "disabled");
+
+		if (multiple)
+		{
+			addAttribute("multiple", STRING_EMPTY);
+		}
+		span.add(fileInput);
+
+		buttonBarContainerDiv.add(span);
+		return (J) this;
+	}
+
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J addStartButton(@Nullable String displayClass, @Nullable String iconClass, @Nullable String label)
+	{
+		Button b = new Button<>();
+		if (displayClass != null && !displayClass.isEmpty())
+		{
+			b.addClass(displayClass);
+		}
+		b.addClass("start");
+
+		b.addAttribute("data-ng-click", "submit()");
+
+		if (iconClass != null && !iconClass.isEmpty())
+		{
+			Italic i = new Italic();
+			i.addClass(iconClass);
+			b.add(i);
+		}
+		if (label != null && !label.isEmpty())
+		{
+			Span span = new Span();
+			span.setText(label);
+			b.add(span);
+		}
+		buttonBarContainerDiv.add(b);
+
+		return (J) this;
+	}
+
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J addCancelButton(@Nullable String displayClass, @Nullable String iconClass, @Nullable String label)
+	{
+		Button b = new Button<>();
+		if (displayClass != null && !displayClass.isEmpty())
+		{
+			b.addClass(displayClass);
+		}
+		b.addClass("cancel");
+
+		b.addAttribute("data-ng-click", "cancel()");
+
+		if (iconClass != null && !iconClass.isEmpty())
+		{
+			Italic i = new Italic();
+			i.addClass(iconClass);
+			b.add(i);
+		}
+		if (label != null && !label.isEmpty())
+		{
+			Span span = new Span();
+			span.setText(label);
+			b.add(span);
+		}
+		buttonBarContainerDiv.add(b);
+
+		return (J) this;
+	}
+
+	@NotNull
+	@SuppressWarnings("unchecked")
+	public J addGlobalFileProcessingState()
+	{
+		Span sp = new Span();
+		sp.addClass("fileupload-process");
+		buttonBarContainerDiv.add(sp);
+		return (J) this;
+	}
+
+	@NotNull
+	@SuppressWarnings("unchecked")
+	public J addGlobalProgressState(Div divToApplyTo, ComponentHierarchyBase progressBarContainer, ComponentHierarchyBase progressBar)
+	{
+		divToApplyTo.addAttribute("data-ng-class", "{in: active()}");
+		progressBarContainer.addAttribute("data-file-upload-progress", "progress()");
+		progressBar.addAttribute("data-ng-style", "{width: num + '%'}");
+
+		divToApplyTo.add(new DivSimple<>().addClass("progress-extended")
+		                                  .setText(HTML_TAB));
+		return (J) this;
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return super.hashCode();
+	}
+}
