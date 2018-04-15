@@ -299,14 +299,14 @@
         <!--  Integration Tests -->
 
         <dependency>
-            <groupId>com.jwebmp</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>jwebmp-undertow</artifactId>
             <version>${project.version}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
-            <groupId>com.jwebmp</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>jwebmp-atmospherepush-undertow</artifactId>
             <version>${project.version}</version>
             <scope>test</scope>
@@ -333,30 +333,6 @@
             <scope>test</scope>
 
         </dependency>
-
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-support</artifactId>
-            <version>3.5.3</version>
-            <type>jar</type>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-firefox-driver</artifactId>
-            <version>3.5.3</version>
-            <scope>test</scope>
-            <type>jar</type>
-        </dependency>
-
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-api</artifactId>
-            <version>3.5.3</version>
-            <scope>test</scope>
-            <type>jar</type>
-        </dependency>
-
     </dependencies>
 
 
