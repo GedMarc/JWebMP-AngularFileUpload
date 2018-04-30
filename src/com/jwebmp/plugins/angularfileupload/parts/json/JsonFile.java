@@ -51,7 +51,7 @@ public class JsonFile
 	@JsonIgnore
 	private boolean deletable = true;
 	@JsonIgnore
-	private InputStream content;
+	private transient InputStream content;
 
 	public JsonFile()
 	{

@@ -34,7 +34,7 @@ public class BlueImpFileDestroyController
 	@Override
 	public String renderFunction()
 	{
-		return FileTemplates.getFileTemplate(BlueImpFileDestroyController.class, "BlueImpFileDestroyController", "blueimpfiledestroycontroller")
+		return FileTemplates.getFileTemplate(BlueImpFileDestroyController.class, FILE_DESTROY_CONTROLLER_NAME, "blueimpfiledestroycontroller")
 		                    .toString();
 	}
 }
