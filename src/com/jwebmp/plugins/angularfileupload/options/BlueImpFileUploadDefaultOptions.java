@@ -13,19 +13,22 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
  *
  * @param <J>
  */
-@JsonAutoDetect(fieldVisibility = ANY, getterVisibility = NONE, setterVisibility = NONE)
+@JsonAutoDetect(fieldVisibility = ANY,
+		getterVisibility = NONE,
+		setterVisibility = NONE)
 @JsonInclude(NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BlueImpFileUploadDefaultOptions<J extends BlueImpFileUploadDefaultOptions<J>>
-	extends BlueImpFileUploadOptions<BlueImpFileUploadDefaultOptions<J>> {
+		extends BlueImpFileUploadOptions<BlueImpFileUploadDefaultOptions<J>>
+{
 
 	/**
 	 * Constructs a new instance of the default options
 	 */
-	public BlueImpFileUploadDefaultOptions() {
+	public BlueImpFileUploadDefaultOptions()
+	{
 		setMaxFileSize(99999999);
-		setMaxChunkSize(2048);
-		setDisableImageResize("/Android(?!.*Chrome)|Opera/" +
-			".test(window.navigator.userAgent)");
+		setMaxChunkSize(204800);
+		setDisableImageResize("/Android(?!.*Chrome)|Opera/" + ".test(window.navigator.userAgent)");
 	}
 }
