@@ -35,6 +35,7 @@
         <maven.source.version>2.1.2</maven.source.version>
         <maven.resources.version>3.0.2</maven.resources.version>
         <netbeans.hint.license>gpl30</netbeans.hint.license>
+        <license.dir>${basedir}</license.dir>
 
         <surefire-plugin.version>2.18.1</surefire-plugin.version>
         <failsafe-plugin.version>2.18.1</failsafe-plugin.version>
