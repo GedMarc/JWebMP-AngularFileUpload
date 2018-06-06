@@ -1,13 +1,13 @@
 package com.jwebmp.plugins.angularfileupload;
 
+import com.jwebmp.guiceinjection.abstractions.GuiceSiteInjectorModule;
+import com.jwebmp.guiceinjection.interfaces.GuiceSiteBinder;
+import com.jwebmp.logger.LogFactory;
 import com.jwebmp.plugins.angularfileupload.servlets.AngularFileServlet;
-import za.co.mmagon.guiceinjection.abstractions.GuiceSiteInjectorModule;
-import za.co.mmagon.guiceinjection.interfaces.GuiceSiteBinder;
-import za.co.mmagon.logger.LogFactory;
 
 import java.util.logging.Level;
 
-import static com.jwebmp.utilities.StaticStrings.QUERY_PARAMETERS_REGEX;
+import static com.jwebmp.utilities.StaticStrings.*;
 
 public class AngularFileUploadBinder
 		extends GuiceSiteBinder

@@ -1,6 +1,6 @@
 package com.jwebmp.plugins.angularfileupload.intercepters;
 
-import za.co.mmagon.guiceinjection.Pair;
+import com.jwebmp.guiceinjection.Pair;
 
 import java.io.InputStream;
 
