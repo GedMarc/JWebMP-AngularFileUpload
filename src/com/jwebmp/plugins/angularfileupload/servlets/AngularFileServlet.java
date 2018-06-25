@@ -105,90 +105,10 @@ public class AngularFileServlet
 		}
 	}
 
-	private void processGetFile(HttpServletRequest request, HttpServletResponse response)
+	@Override
+	public void perform()
 	{
-		String filename = request.getParameter(getFileMethod);
-		Set<Class<? extends OnGetFileInterceptor>> intercepters = GuiceContext.reflect()
-		                                                                      .getSubTypesOf(OnGetFileInterceptor.class);
-		if (intercepters == null || intercepters.isEmpty())
-		{
-			log.warning("There are no file getter interceptors to catch this file get. Create a class that implements " + "OnGetFileInterceptor to deliver this file.");
-		}
-		else
-		{
-			intercepters.forEach(a ->
-			                     {
-				                     OnGetFileInterceptor obj = GuiceContext.getInstance(a);
-				                     Pair<String, InputStream> is = obj.onGetFile(filename);
-				                     String mimeType = new Tika().detect(is.getKey());
-				                     response.setContentType(mimeType);
-				                     response.setHeader("Content-Disposition", "inline; filename=\"" + is.getKey() + "\"");
-				                     try
-				                     {
-					                     IOUtils.copyLarge(is.getValue(), response.getOutputStream());
-					                     is.getValue()
-					                       .close();
-				                     }
-				                     catch (IOException e)
-				                     {
-					                     log.log(Level.SEVERE, "Unable to deliver file when input stream is transferred to output stream", e);
-				                     }
-			                     });
-		}
-	}
 
-	private void processDeleteFile(HttpServletRequest request)
-	{
-		String filename = request.getParameter(deleteFileMethod);
-
-		Set<Class<? extends OnDeleteFileInterceptor>> intercepters = GuiceContext.reflect()
-		                                                                         .getSubTypesOf(OnDeleteFileInterceptor.class);
-		if (intercepters == null || intercepters.isEmpty())
-		{
-			log.warning("There are no file delete interceptors to catch this file delete. Create a class that implements " + "OnDeleteFileInterceptor to delete this file.");
-		}
-		else
-		{
-			intercepters.forEach(a ->
-			                     {
-				                     OnDeleteFileInterceptor obj = GuiceContext.getInstance(a);
-				                     obj.onDeleteFile(filename);
-			                     });
-		}
-	}
-
-	private void processGetThumb(HttpServletRequest request, HttpServletResponse response)
-	{
-		String filename = request.getParameter(getThumbMethod);
-
-		Set<Class<? extends OnThumbnailFileInterceptor>> intercepters = GuiceContext.reflect()
-		                                                                            .getSubTypesOf(OnThumbnailFileInterceptor.class);
-		if (intercepters == null || intercepters.isEmpty())
-		{
-			log.warning(
-					"There are no file get thumbnail interceptors to catch this file thumbnail. Create a class that implements " + "OnThumbnailFileInterceptor to deliver the thumbnail.");
-		}
-		else
-		{
-			intercepters.forEach(a ->
-			                     {
-				                     OnThumbnailFileInterceptor obj = GuiceContext.getInstance(a);
-				                     Pair<String, InputStream> is = obj.onThumbnailGet(filename);
-				                     String mimeType = new Tika().detect(is.getKey());
-				                     response.setContentType(mimeType);
-				                     response.setHeader("Content-Disposition", "inline; filename=\"" + is.getKey() + "\"");
-				                     try
-				                     {
-					                     IOUtils.copyLarge(is.getValue(), response.getOutputStream());
-					                     is.getValue()
-					                       .close();
-				                     }
-				                     catch (IOException e)
-				                     {
-					                     log.log(Level.SEVERE, "Unable to deliver file when input stream is transferred to output stream", e);
-				                     }
-			                     });
-		}
 	}
 
 	/**
@@ -263,14 +183,6 @@ public class AngularFileServlet
 		}
 	}
 
-	@SiteInterception
-	protected void intercept()
-	{
-		/**
-		 * Intercepted with the annotations
-		 */
-	}
-
 	private void processUploadedFile(boolean completed, Long totalS, FileItem item, JsonFilesArray filesArray) throws IOException
 	{
 		String fileUploadIdentifier = item.getName() + "|" + totalS + "|" + item.getFieldName();
@@ -326,6 +238,102 @@ public class AngularFileServlet
 				log.warning("Unable to delete temporary file : " + tempFile);
 			}
 			stringFileMap.remove(fileUploadIdentifier);
+		}
+	}
+
+	@Override
+	@SiteInterception
+	protected void intercept()
+	{
+		/**
+		 * Intercepted with the annotations
+		 */
+	}
+
+	private void processGetFile(HttpServletRequest request, HttpServletResponse response)
+	{
+		String filename = request.getParameter(getFileMethod);
+		Set<Class<? extends OnGetFileInterceptor>> intercepters = GuiceContext.reflect()
+		                                                                      .getSubTypesOf(OnGetFileInterceptor.class);
+		if (intercepters == null || intercepters.isEmpty())
+		{
+			log.warning("There are no file getter interceptors to catch this file get. Create a class that implements " + "OnGetFileInterceptor to deliver this file.");
+		}
+		else
+		{
+			intercepters.forEach(a ->
+			                     {
+				                     OnGetFileInterceptor obj = GuiceContext.getInstance(a);
+				                     Pair<String, InputStream> is = obj.onGetFile(filename);
+				                     String mimeType = new Tika().detect(is.getKey());
+				                     response.setContentType(mimeType);
+				                     response.setHeader("Content-Disposition", "inline; filename=\"" + is.getKey() + "\"");
+				                     try
+				                     {
+					                     IOUtils.copyLarge(is.getValue(), response.getOutputStream());
+					                     is.getValue()
+					                       .close();
+				                     }
+				                     catch (IOException e)
+				                     {
+					                     log.log(Level.SEVERE, "Unable to deliver file when input stream is transferred to output stream", e);
+				                     }
+			                     });
+		}
+	}
+
+	private void processDeleteFile(HttpServletRequest request)
+	{
+		String filename = request.getParameter(deleteFileMethod);
+
+		Set<Class<? extends OnDeleteFileInterceptor>> intercepters = GuiceContext.reflect()
+		                                                                         .getSubTypesOf(OnDeleteFileInterceptor.class);
+		if (intercepters == null || intercepters.isEmpty())
+		{
+			log.warning("There are no file delete interceptors to catch this file delete. Create a class that implements " + "OnDeleteFileInterceptor to delete this file.");
+		}
+		else
+		{
+			intercepters.forEach(a ->
+			                     {
+				                     OnDeleteFileInterceptor obj = GuiceContext.getInstance(a);
+				                     obj.onDeleteFile(filename);
+			                     });
+		}
+	}
+
+	private void processGetThumb(HttpServletRequest request, HttpServletResponse response)
+	{
+		String filename = request.getParameter(getThumbMethod);
+
+		Set<Class<? extends OnThumbnailFileInterceptor>> intercepters = GuiceContext.reflect()
+		                                                                            .getSubTypesOf(OnThumbnailFileInterceptor.class);
+		if (intercepters == null || intercepters.isEmpty())
+		{
+			log.warning(
+					"There are no file get thumbnail interceptors to catch this file thumbnail. Create a class that implements " +
+					"OnThumbnailFileInterceptor to deliver the thumbnail.");
+		}
+		else
+		{
+			intercepters.forEach(a ->
+			                     {
+				                     OnThumbnailFileInterceptor obj = GuiceContext.getInstance(a);
+				                     Pair<String, InputStream> is = obj.onThumbnailGet(filename);
+				                     String mimeType = new Tika().detect(is.getKey());
+				                     response.setContentType(mimeType);
+				                     response.setHeader("Content-Disposition", "inline; filename=\"" + is.getKey() + "\"");
+				                     try
+				                     {
+					                     IOUtils.copyLarge(is.getValue(), response.getOutputStream());
+					                     is.getValue()
+					                       .close();
+				                     }
+				                     catch (IOException e)
+				                     {
+					                     log.log(Level.SEVERE, "Unable to deliver file when input stream is transferred to output stream", e);
+				                     }
+			                     });
 		}
 	}
 }
