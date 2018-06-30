@@ -39,7 +39,6 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.tika.Tika;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -83,62 +82,16 @@ public class AngularFileServlet
 	}
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-	{
-
-		if (request.getParameter(getFileMethod) != null && !request.getParameter(getFileMethod)
-		                                                           .isEmpty())
-		{
-
-			processGetFile(request, response);
-
-		}
-		else if (request.getParameter(deleteFileMethod) != null && !request.getParameter(deleteFileMethod)
-		                                                                   .isEmpty())
-		{
-			processDeleteFile(request);
-		}
-		else if (request.getParameter(getThumbMethod) != null && !request.getParameter(getThumbMethod)
-		                                                                 .isEmpty())
-		{
-			processGetThumb(request, response);
-		}
-	}
-
-	@Override
-	public void perform()
-	{
-
-	}
-
-	/**
-	 * Validates and sends the post
-	 *
-	 * @param request
-	 * @param response
-	 */
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-	{
-		try
-		{
-			processRequest(request);
-		}
-		catch (ServletException e)
-		{
-			log.log(Level.SEVERE, "Angular File Servlet Do Post", e);
-		}
-	}
-
 	@SuppressWarnings("unchecked")
-	protected void processRequest(HttpServletRequest request) throws ServletException
+	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
 	{
 		log.log(Level.INFO, "[SessionID]-[{0}];[Connection]-[Data Call Connection Established]", request.getSession()
 		                                                                                                .getId());
 
 		if (!ServletFileUpload.isMultipartContent(request))
 		{
-			throw new ServletException("File Uploaded is not a multipart request");
+			log.warning("File Upload is not a MultiPart, Incorrect servlet being hit");
+			return;
 		}
 
 		intercept();
@@ -183,61 +136,28 @@ public class AngularFileServlet
 		}
 	}
 
-	private void processUploadedFile(boolean completed, Long totalS, FileItem item, JsonFilesArray filesArray) throws IOException
+	@Override
+	public void perform()
 	{
-		String fileUploadIdentifier = item.getName() + "|" + totalS + "|" + item.getFieldName();
+		HttpServletRequest request = GuiceContext.get(HttpServletRequest.class);
+		HttpServletResponse response = GuiceContext.get(HttpServletResponse.class);
 
-		if (!stringFileMap.containsKey(fileUploadIdentifier))
+		if (request.getParameter(getFileMethod) != null && !request.getParameter(getFileMethod)
+		                                                           .isEmpty())
 		{
-			File tempFile = File.createTempFile("jwebswing_fileUpload_", "-ul");
-			stringFileMap.put(fileUploadIdentifier, tempFile);
+
+			processGetFile(request, response);
+
 		}
-
-		File tempFile = stringFileMap.get(fileUploadIdentifier);
-
-		if (!completed)
+		else if (request.getParameter(deleteFileMethod) != null && !request.getParameter(deleteFileMethod)
+		                                                                   .isEmpty())
 		{
-			FileUtils.writeByteArrayToFile(tempFile, item.get(), true);
+			processDeleteFile(request);
 		}
-		else
+		else if (request.getParameter(getThumbMethod) != null && !request.getParameter(getThumbMethod)
+		                                                                 .isEmpty())
 		{
-			JsonFile file = new JsonFile();
-			file.setName(item.getName());
-			file.setSize(tempFile.length());
-
-			try (FileInputStream fis = new FileInputStream(tempFile))
-			{
-				file.setContent(fis);
-				file.setType(new Tika().detect(item.getName()));
-
-				file.setDownloadUrl(SessionHelper.getServerPath() + AngularFileUploadBinder.BLUEIMP_FILEUPLOAD_SERVLETURL + "?getfile=" + item.getName());
-				file.setThumbnailUrl(SessionHelper.getServerPath() + AngularFileUploadBinder.BLUEIMP_FILEUPLOAD_SERVLETURL + "?getthumb=" + item.getName());
-				file.setDeleteUrl(SessionHelper.getServerPath() + AngularFileUploadBinder.BLUEIMP_FILEUPLOAD_SERVLETURL + "?delfile=" + item.getName());
-
-				filesArray.getAllFiles()
-				          .add(file);
-
-				Set<Class<? extends OnFileUploadInterceptor>> intercepters = GuiceContext.reflect()
-				                                                                         .getSubTypesOf(OnFileUploadInterceptor.class);
-
-				if (intercepters == null || intercepters.isEmpty())
-				{
-					log.warning("There are no file upload interceptors to catch this file upload. Create a class that implements " + "OnFileUploadInterceptor to use this file.");
-				}
-				else
-				{
-					intercepters.forEach(a ->
-					                     {
-						                     OnFileUploadInterceptor obj = GuiceContext.getInstance(a);
-						                     obj.onUploadCompleted(file);
-					                     });
-				}
-			}
-			if (!tempFile.delete())
-			{
-				log.warning("Unable to delete temporary file : " + tempFile);
-			}
-			stringFileMap.remove(fileUploadIdentifier);
+			processGetThumb(request, response);
 		}
 	}
 
@@ -334,6 +254,64 @@ public class AngularFileServlet
 					                     log.log(Level.SEVERE, "Unable to deliver file when input stream is transferred to output stream", e);
 				                     }
 			                     });
+		}
+	}
+
+	private void processUploadedFile(boolean completed, Long totalS, FileItem item, JsonFilesArray filesArray) throws IOException
+	{
+		String fileUploadIdentifier = item.getName() + "|" + totalS + "|" + item.getFieldName();
+
+		if (!stringFileMap.containsKey(fileUploadIdentifier))
+		{
+			File tempFile = File.createTempFile("jwebswing_fileUpload_", "-ul");
+			stringFileMap.put(fileUploadIdentifier, tempFile);
+		}
+
+		File tempFile = stringFileMap.get(fileUploadIdentifier);
+
+		if (!completed)
+		{
+			FileUtils.writeByteArrayToFile(tempFile, item.get(), true);
+		}
+		else
+		{
+			JsonFile file = new JsonFile();
+			file.setName(item.getName());
+			file.setSize(tempFile.length());
+
+			try (FileInputStream fis = new FileInputStream(tempFile))
+			{
+				file.setContent(fis);
+				file.setType(new Tika().detect(item.getName()));
+
+				file.setDownloadUrl(SessionHelper.getServerPath() + AngularFileUploadBinder.BLUEIMP_FILEUPLOAD_SERVLETURL + "?getfile=" + item.getName());
+				file.setThumbnailUrl(SessionHelper.getServerPath() + AngularFileUploadBinder.BLUEIMP_FILEUPLOAD_SERVLETURL + "?getthumb=" + item.getName());
+				file.setDeleteUrl(SessionHelper.getServerPath() + AngularFileUploadBinder.BLUEIMP_FILEUPLOAD_SERVLETURL + "?delfile=" + item.getName());
+
+				filesArray.getAllFiles()
+				          .add(file);
+
+				Set<Class<? extends OnFileUploadInterceptor>> intercepters = GuiceContext.reflect()
+				                                                                         .getSubTypesOf(OnFileUploadInterceptor.class);
+
+				if (intercepters == null || intercepters.isEmpty())
+				{
+					log.warning("There are no file upload interceptors to catch this file upload. Create a class that implements " + "OnFileUploadInterceptor to use this file.");
+				}
+				else
+				{
+					intercepters.forEach(a ->
+					                     {
+						                     OnFileUploadInterceptor obj = GuiceContext.getInstance(a);
+						                     obj.onUploadCompleted(file);
+					                     });
+				}
+			}
+			if (!tempFile.delete())
+			{
+				log.warning("Unable to delete temporary file : " + tempFile);
+			}
+			stringFileMap.remove(fileUploadIdentifier);
 		}
 	}
 }

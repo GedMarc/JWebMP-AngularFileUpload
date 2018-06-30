@@ -1,7 +1,7 @@
 package com.jwebmp.plugins.angularfileupload;
 
-import com.jwebmp.guiceinjection.abstractions.GuiceSiteInjectorModule;
-import com.jwebmp.guiceinjection.interfaces.GuiceSiteBinder;
+import com.jwebmp.guicedservlets.GuiceSiteBinder;
+import com.jwebmp.guicedservlets.GuiceSiteInjectorModule;
 import com.jwebmp.logger.LogFactory;
 import com.jwebmp.plugins.angularfileupload.servlets.AngularFileServlet;
 
@@ -20,7 +20,6 @@ public class AngularFileUploadBinder
 	{
 		module.serveRegex$("(" + "/" + BLUEIMP_FILEUPLOAD_SERVLETURL + ")" + QUERY_PARAMETERS_REGEX)
 		      .with(AngularFileServlet.class);
-
 
 		log.log(Level.INFO, "Serving File Uploads at {0}", "/" + BLUEIMP_FILEUPLOAD_SERVLETURL);
 	}
