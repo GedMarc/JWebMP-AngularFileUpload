@@ -22,7 +22,7 @@ import com.jwebmp.SessionHelper;
 import com.jwebmp.annotations.SiteInterception;
 import com.jwebmp.base.servlets.JWDefaultServlet;
 import com.jwebmp.guicedinjection.GuiceContext;
-import com.jwebmp.guicedinjection.Pair;
+import com.jwebmp.guicedinjection.pairing.Pair;
 import com.jwebmp.logger.LogFactory;
 import com.jwebmp.plugins.angularfileupload.AngularFileUploadBinder;
 import com.jwebmp.plugins.angularfileupload.intercepters.OnDeleteFileInterceptor;

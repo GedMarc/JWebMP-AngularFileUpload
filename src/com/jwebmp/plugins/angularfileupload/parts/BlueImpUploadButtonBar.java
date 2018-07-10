@@ -22,11 +22,9 @@ import com.jwebmp.base.html.*;
 import com.jwebmp.base.html.inputs.InputFileType;
 import com.jwebmp.base.html.interfaces.GlobalChildren;
 
-import javax.annotation.Nullable;
 import javax.validation.constraints.NotNull;
 
-import static com.jwebmp.utilities.StaticStrings.HTML_TAB;
-import static com.jwebmp.utilities.StaticStrings.STRING_EMPTY;
+import static com.jwebmp.utilities.StaticStrings.*;
 
 public class BlueImpUploadButtonBar<J extends BlueImpUploadButtonBar<J>>
 		extends DivSimple<J>
@@ -43,7 +41,7 @@ public class BlueImpUploadButtonBar<J extends BlueImpUploadButtonBar<J>>
 
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J addAddButton(@Nullable String displayClass, @Nullable String iconClass, @Nullable String label, boolean multiple)
+	public J addAddButton(String displayClass, String iconClass, String label, boolean multiple)
 	{
 		Span<GlobalChildren, ?, ?> span = new Span();
 
@@ -85,7 +83,7 @@ public class BlueImpUploadButtonBar<J extends BlueImpUploadButtonBar<J>>
 
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J addStartButton(@Nullable String displayClass, @Nullable String iconClass, @Nullable String label)
+	public J addStartButton(String displayClass, String iconClass, String label)
 	{
 		Button b = new Button<>();
 		if (displayClass != null && !displayClass.isEmpty())
@@ -115,7 +113,7 @@ public class BlueImpUploadButtonBar<J extends BlueImpUploadButtonBar<J>>
 
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J addCancelButton(@Nullable String displayClass, @Nullable String iconClass, @Nullable String label)
+	public J addCancelButton(String displayClass, String iconClass, String label)
 	{
 		Button b = new Button<>();
 		if (displayClass != null && !displayClass.isEmpty())
