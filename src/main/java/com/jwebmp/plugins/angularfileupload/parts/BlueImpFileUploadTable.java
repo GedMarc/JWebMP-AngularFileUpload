@@ -24,7 +24,7 @@ import com.jwebmp.plugins.angularfileupload.angular.BlueImpFileDestroyController
 
 import javax.validation.constraints.NotNull;
 
-import static com.jwebmp.utilities.StaticStrings.STRING_EMPTY;
+import static com.jwebmp.utilities.StaticStrings.*;
 
 /**
  * The table listing the files available for upload/download
@@ -243,7 +243,6 @@ public class BlueImpFileUploadTable<J extends BlueImpFileUploadTable<J>>
 		}
 		super.preConfigure();
 	}
-
 
 	public boolean isShowThumbnail()
 	{

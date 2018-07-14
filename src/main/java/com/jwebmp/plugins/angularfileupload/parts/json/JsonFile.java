@@ -22,9 +22,8 @@ import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
 
 import java.io.InputStream;
 
-import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.ANY;
-import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.NONE;
-import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
+import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.*;
+import static com.fasterxml.jackson.annotation.JsonInclude.Include.*;
 
 @JsonAutoDetect(fieldVisibility = ANY,
 		getterVisibility = NONE,

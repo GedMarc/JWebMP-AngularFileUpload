@@ -35,7 +35,12 @@ import javax.validation.constraints.NotNull;
 
 @PluginInformation(pluginName = "Angular File Upload",
 		pluginUniqueName = "jwebswing-angular-file-upload",
-		pluginDescription = "File Upload widget with multiple file selection, drag&drop support, progress bars, validation and preview " + "images, audio and video for jQuery.\n" + "Supports cross-domain, chunked and resumable file uploads " + "and client-side image resizing.\n" + "Works with any server-side platform (PHP, Python, Ruby on " + "Rails, Java, Node.js, Go etc.) that supports standard HTML form file uploads.",
+		pluginDescription = "File Upload widget with multiple file selection, drag&drop support, progress bars, validation and preview " +
+		                    "images, audio and video for jQuery.\n" +
+		                    "Supports cross-domain, chunked and resumable file uploads " +
+		                    "and client-side image resizing.\n" +
+		                    "Works with any server-side platform (PHP, Python, Ruby on " +
+		                    "Rails, Java, Node.js, Go etc.) that supports standard HTML form file uploads.",
 		pluginVersion = "2.4.7",
 		pluginDependancyUniqueIDs = "jquery-ui,jquery,angular",
 		pluginCategories = "File Upload, Widget, BlueImp",

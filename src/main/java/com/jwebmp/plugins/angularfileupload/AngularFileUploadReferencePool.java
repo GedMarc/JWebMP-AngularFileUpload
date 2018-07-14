@@ -26,7 +26,8 @@ import com.jwebmp.base.servlets.interfaces.ReferencePool;
  * @author GedMarc
  * @since 20 Apr 2016
  */
-public enum AngularFileUploadReferencePool implements ReferencePool
+public enum AngularFileUploadReferencePool
+		implements ReferencePool
 {
 	/**
 	 * Display Template
@@ -70,7 +71,6 @@ public enum AngularFileUploadReferencePool implements ReferencePool
 	LoadImageReference(new JavascriptReference("LoadImageReference", 1.0, "jwebswing-angular-file-upload/load-image/js/load-image.min.js"),
 	                   null),
 
-
 	CanvasToBlobReference(new JavascriptReference("CanvasToBlobReference", 1.0, "jwebswing-angular-file-upload/file-upload/js/canvas-to-blob.min.js"),
 	                      null),
 
@@ -90,18 +90,18 @@ public enum AngularFileUploadReferencePool implements ReferencePool
 	                           null),
 	FileUploadValidateReference(new JavascriptReference("FileUploadValidateReference", 1.0, "jwebswing-angular-file-upload/file-upload/js/jquery.fileupload-validate.min.js"),
 	                            null),
-	FileUploadIFrameTransportReference(new JavascriptReference("FileUploadIFrameTransportReference", 1.0, "jwebswing-angular-file-upload/file-upload/js/jquery.iframe-transport.min.js"),
-	                                   null),
+	FileUploadIFrameTransportReference(
+			new JavascriptReference("FileUploadIFrameTransportReference", 1.0, "jwebswing-angular-file-upload/file-upload/js/jquery.iframe-transport.min.js"),
+			null),
 	FileUploadVideoReference(new JavascriptReference("FileUploadVideoReference", 1.0, "jwebswing-angular-file-upload/file-upload/js/jquery.fileupload-video.min.js"),
 	                         null),
-
 
 	FileUploadUIReference(new JavascriptReference("FileUploadUIReference", 1.0, "jwebswing-angular-file-upload/file-upload/js/jquery.fileupload-ui.min.js"),
 	                      new CSSReference("angularFileUploadReference", 1.0, "jwebswing-angular-file-upload/file-upload/css/jquery.fileupload-ui.min.css")),
 
 	FileUploadAngularReference(new JavascriptReference("FileUploadAngularReference", 1.0, "jwebswing-angular-file-upload/file-upload/js/jquery" +
-		".fileupload-angular" +
-		".min.js"),null);
+	                                                                                      ".fileupload-angular" +
+	                                                                                      ".min.js"), null);
 	/**
 	 * The actual javascript
 	 */

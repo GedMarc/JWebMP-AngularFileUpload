@@ -19,13 +19,13 @@ package com.jwebmp.plugins.angularfileupload;
 import com.jwebmp.base.html.interfaces.AttributeDefinitions;
 import com.jwebmp.utilities.StaticStrings;
 
-import static com.jwebmp.utilities.StaticStrings.CHAR_DASH;
-import static com.jwebmp.utilities.StaticStrings.STRING_EMPTY;
+import static com.jwebmp.utilities.StaticStrings.*;
 
 /**
  * @author GedMarc
  */
-public enum AngularFileUploadAttributes implements AttributeDefinitions
+public enum AngularFileUploadAttributes
+		implements AttributeDefinitions
 {
 	Visibility;
 
@@ -57,6 +57,8 @@ public enum AngularFileUploadAttributes implements AttributeDefinitions
 	@Override
 	public String toString()
 	{
-		return name().toLowerCase().replace(StaticStrings.CHAR_UNDERSCORE, CHAR_DASH).replace("$", STRING_EMPTY);
+		return name().toLowerCase()
+		             .replace(StaticStrings.CHAR_UNDERSCORE, CHAR_DASH)
+		             .replace("$", STRING_EMPTY);
 	}
 }
