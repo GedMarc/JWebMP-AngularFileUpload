@@ -17,7 +17,7 @@
 
 package com.jwebmp.plugins.angularfileupload;
 
-import com.jwebmp.plugins.ComponentInformation;
+import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.angularfileupload.parts.BlueImpUploadForm;
 
 @ComponentInformation(name = "Angular File Upload",

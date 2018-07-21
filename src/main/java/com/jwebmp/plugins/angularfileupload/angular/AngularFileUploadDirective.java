@@ -17,8 +17,8 @@
 
 package com.jwebmp.plugins.angularfileupload.angular;
 
-import com.jwebmp.FileTemplates;
-import com.jwebmp.base.angular.directives.AngularDirectiveBase;
+import com.jwebmp.core.FileTemplates;
+import com.jwebmp.core.base.angular.directives.AngularDirectiveBase;
 
 /**
  * The Angular Auto Focus Directive that is applied

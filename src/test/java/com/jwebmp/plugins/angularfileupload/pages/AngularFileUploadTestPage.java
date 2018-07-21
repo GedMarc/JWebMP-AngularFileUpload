@@ -17,7 +17,7 @@
 
 package com.jwebmp.plugins.angularfileupload.pages;
 
-import com.jwebmp.Page;
+import com.jwebmp.core.Page;
 import com.jwebmp.plugins.angularfileupload.AngularFileUpload;
 import com.jwebmp.plugins.angularfileupload.parts.BlueImpFileUploadTable;
 import com.jwebmp.plugins.angularfileupload.parts.BlueImpUploadButtonBar;

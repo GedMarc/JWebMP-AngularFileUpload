@@ -1,16 +1,16 @@
 package com.jwebmp.plugins.angularfileupload;
 
-import com.jwebmp.guicedservlets.GuiceSiteBinder;
 import com.jwebmp.guicedservlets.GuiceSiteInjectorModule;
+import com.jwebmp.guicedservlets.services.IGuiceSiteBinder;
 import com.jwebmp.logger.LogFactory;
 import com.jwebmp.plugins.angularfileupload.servlets.AngularFileServlet;
 
 import java.util.logging.Level;
 
-import static com.jwebmp.utilities.StaticStrings.*;
+import static com.jwebmp.core.utilities.StaticStrings.*;
 
-public class AngularFileUploadBinder
-		extends GuiceSiteBinder
+public class AngularFileUploadBinderGuiceSiteBinder
+		implements IGuiceSiteBinder<GuiceSiteInjectorModule>
 {
 	public static final String BLUEIMP_FILEUPLOAD_SERVLETURL = "blueimpangularfileupload";
 	private static final java.util.logging.Logger log = LogFactory.getLog("AngularFileUpload");

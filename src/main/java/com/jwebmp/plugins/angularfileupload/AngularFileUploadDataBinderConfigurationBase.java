@@ -17,8 +17,8 @@
 
 package com.jwebmp.plugins.angularfileupload;
 
-import com.jwebmp.FileTemplates;
-import com.jwebmp.base.angular.configurations.AngularConfigurationBase;
+import com.jwebmp.core.FileTemplates;
+import com.jwebmp.core.base.angular.configurations.AngularConfigurationBase;
 import com.jwebmp.plugins.angularfileupload.options.BlueImpFileUploadDefaultOptions;
 
 public class AngularFileUploadDataBinderConfigurationBase

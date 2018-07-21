@@ -18,18 +18,18 @@
 package com.jwebmp.plugins.angularfileupload;
 
 import com.google.inject.Singleton;
-import com.jwebmp.Page;
-import com.jwebmp.PageConfigurator;
-import com.jwebmp.base.angular.AngularPageConfigurator;
-import com.jwebmp.base.html.Div;
-import com.jwebmp.base.html.H3;
-import com.jwebmp.base.html.Link;
-import com.jwebmp.base.html.List;
-import com.jwebmp.plugins.PluginInformation;
+import com.jwebmp.core.Page;
+import com.jwebmp.core.PageConfigurator;
+import com.jwebmp.core.base.angular.AngularPageConfigurator;
+import com.jwebmp.core.base.html.Div;
+import com.jwebmp.core.base.html.H3;
+import com.jwebmp.core.base.html.Link;
+import com.jwebmp.core.base.html.List;
+import com.jwebmp.core.plugins.PluginInformation;
+import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
 import com.jwebmp.plugins.angularfileupload.angular.AngularBlueImpFileUploadModule;
 import com.jwebmp.plugins.angularfileupload.angular.BlueImpFileDestroyController;
 import com.jwebmp.plugins.angularfileupload.options.BlueImpFileUploadDefaultOptions;
-import com.jwebmp.plugins.jquery.JQueryPageConfigurator;
 
 import javax.validation.constraints.NotNull;
 

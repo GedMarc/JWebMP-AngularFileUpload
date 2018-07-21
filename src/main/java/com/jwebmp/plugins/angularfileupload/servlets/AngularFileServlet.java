@@ -18,13 +18,12 @@
 package com.jwebmp.plugins.angularfileupload.servlets;
 
 import com.google.inject.Singleton;
-import com.jwebmp.SessionHelper;
-import com.jwebmp.annotations.SiteInterception;
-import com.jwebmp.base.servlets.JWDefaultServlet;
+import com.jwebmp.core.SessionHelper;
+import com.jwebmp.core.base.servlets.JWDefaultServlet;
 import com.jwebmp.guicedinjection.GuiceContext;
 import com.jwebmp.guicedinjection.pairing.Pair;
 import com.jwebmp.logger.LogFactory;
-import com.jwebmp.plugins.angularfileupload.AngularFileUploadBinder;
+import com.jwebmp.plugins.angularfileupload.AngularFileUploadBinderGuiceSiteBinder;
 import com.jwebmp.plugins.angularfileupload.intercepters.OnDeleteFileInterceptor;
 import com.jwebmp.plugins.angularfileupload.intercepters.OnFileUploadInterceptor;
 import com.jwebmp.plugins.angularfileupload.intercepters.OnGetFileInterceptor;
@@ -161,15 +160,6 @@ public class AngularFileServlet
 		}
 	}
 
-	@Override
-	@SiteInterception
-	protected void intercept()
-	{
-		/**
-		 * Intercepted with the annotations
-		 */
-	}
-
 	private void processGetFile(HttpServletRequest request, HttpServletResponse response)
 	{
 		String filename = request.getParameter(getFileMethod);
@@ -284,9 +274,9 @@ public class AngularFileServlet
 				file.setContent(fis);
 				file.setType(new Tika().detect(item.getName()));
 
-				file.setDownloadUrl(SessionHelper.getServerPath() + AngularFileUploadBinder.BLUEIMP_FILEUPLOAD_SERVLETURL + "?getfile=" + item.getName());
-				file.setThumbnailUrl(SessionHelper.getServerPath() + AngularFileUploadBinder.BLUEIMP_FILEUPLOAD_SERVLETURL + "?getthumb=" + item.getName());
-				file.setDeleteUrl(SessionHelper.getServerPath() + AngularFileUploadBinder.BLUEIMP_FILEUPLOAD_SERVLETURL + "?delfile=" + item.getName());
+				file.setDownloadUrl(SessionHelper.getServerPath() + AngularFileUploadBinderGuiceSiteBinder.BLUEIMP_FILEUPLOAD_SERVLETURL + "?getfile=" + item.getName());
+				file.setThumbnailUrl(SessionHelper.getServerPath() + AngularFileUploadBinderGuiceSiteBinder.BLUEIMP_FILEUPLOAD_SERVLETURL + "?getthumb=" + item.getName());
+				file.setDeleteUrl(SessionHelper.getServerPath() + AngularFileUploadBinderGuiceSiteBinder.BLUEIMP_FILEUPLOAD_SERVLETURL + "?delfile=" + item.getName());
 
 				filesArray.getAllFiles()
 				          .add(file);

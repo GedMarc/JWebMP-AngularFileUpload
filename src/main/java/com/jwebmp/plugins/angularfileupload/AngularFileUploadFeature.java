@@ -16,9 +16,9 @@
  */
 package com.jwebmp.plugins.angularfileupload;
 
-import com.jwebmp.Component;
-import com.jwebmp.Feature;
-import com.jwebmp.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.Component;
+import com.jwebmp.core.Feature;
+import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.plugins.angularfileupload.interfaces.AngularFileUploadFeatures;
 import com.jwebmp.plugins.angularfileupload.options.BlueImpFileUploadOptions;
 

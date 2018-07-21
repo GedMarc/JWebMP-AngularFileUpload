@@ -17,14 +17,14 @@
 
 package com.jwebmp.plugins.angularfileupload.parts;
 
-import com.jwebmp.base.ComponentHierarchyBase;
-import com.jwebmp.base.html.*;
-import com.jwebmp.base.html.inputs.InputFileType;
-import com.jwebmp.base.html.interfaces.GlobalChildren;
+import com.jwebmp.core.base.ComponentHierarchyBase;
+import com.jwebmp.core.base.html.*;
+import com.jwebmp.core.base.html.inputs.InputFileType;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 
 import javax.validation.constraints.NotNull;
 
-import static com.jwebmp.utilities.StaticStrings.*;
+import static com.jwebmp.core.utilities.StaticStrings.*;
 
 public class BlueImpUploadButtonBar<J extends BlueImpUploadButtonBar<J>>
 		extends DivSimple<J>

@@ -17,7 +17,7 @@
 
 package com.jwebmp.plugins.angularfileupload.angular;
 
-import com.jwebmp.base.angular.modules.AngularModuleBase;
+import com.jwebmp.core.base.angular.modules.AngularModuleBase;
 
 /**
  * The module getting loaded into angular

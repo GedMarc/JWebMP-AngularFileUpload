@@ -17,8 +17,8 @@
 
 package com.jwebmp.plugins.angularfileupload.angular;
 
-import com.jwebmp.FileTemplates;
-import com.jwebmp.base.angular.controllers.AngularControllerBase;
+import com.jwebmp.core.FileTemplates;
+import com.jwebmp.core.base.angular.controllers.AngularControllerBase;
 
 public class BlueImpFileDestroyController
 		extends AngularControllerBase

@@ -1,9 +1,9 @@
 package com.jwebmp.plugins.angularfileupload.parts;
 
-import com.jwebmp.SessionHelper;
-import com.jwebmp.base.angular.AngularAttributes;
-import com.jwebmp.base.html.Form;
-import com.jwebmp.plugins.angularfileupload.AngularFileUploadBinder;
+import com.jwebmp.core.SessionHelper;
+import com.jwebmp.core.base.angular.AngularAttributes;
+import com.jwebmp.core.base.html.Form;
+import com.jwebmp.plugins.angularfileupload.AngularFileUploadBinderGuiceSiteBinder;
 import com.jwebmp.plugins.angularfileupload.options.BlueImpFileUploadOptions;
 
 /**
@@ -21,7 +21,7 @@ public class BlueImpUploadForm<J extends BlueImpUploadForm<J>>
 
 	public BlueImpUploadForm()
 	{
-		addAttribute("action", SessionHelper.getServletUrl() + AngularFileUploadBinder.BLUEIMP_FILEUPLOAD_SERVLETURL);
+		addAttribute("action", SessionHelper.getServletUrl() + AngularFileUploadBinderGuiceSiteBinder.BLUEIMP_FILEUPLOAD_SERVLETURL);
 		addAttribute("method", "POST");
 		addAttribute("enc-type", "multipart/form-data");
 		addAttribute("data-file-upload", "options");

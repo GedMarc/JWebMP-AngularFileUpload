@@ -18,7 +18,7 @@
 package com.jwebmp.plugins.angularfileupload.parts.json;
 
 import com.fasterxml.jackson.annotation.*;
-import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
+import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 
 import java.io.InputStream;
 

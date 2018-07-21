@@ -17,14 +17,14 @@
 
 package com.jwebmp.plugins.angularfileupload.parts;
 
-import com.jwebmp.base.ComponentHierarchyBase;
-import com.jwebmp.base.html.*;
-import com.jwebmp.base.html.attributes.GlobalAttributes;
+import com.jwebmp.core.base.ComponentHierarchyBase;
+import com.jwebmp.core.base.html.*;
+import com.jwebmp.core.base.html.attributes.GlobalAttributes;
 import com.jwebmp.plugins.angularfileupload.angular.BlueImpFileDestroyController;
 
 import javax.validation.constraints.NotNull;
 
-import static com.jwebmp.utilities.StaticStrings.*;
+import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
  * The table listing the files available for upload/download

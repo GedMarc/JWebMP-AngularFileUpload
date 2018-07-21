@@ -1,3 +1,6 @@
+import com.jwebmp.guicedservlets.services.IGuiceSiteBinder;
+import com.jwebmp.plugins.angularfileupload.AngularFileUploadBinderGuiceSiteBinder;
+
 module com.jwebmp.plugins.angularfileupload {
 	exports com.jwebmp.plugins.angularfileupload;
 	exports com.jwebmp.plugins.angularfileupload.angular;
@@ -21,4 +24,6 @@ module com.jwebmp.plugins.angularfileupload {
 	requires com.fasterxml.jackson.annotation;
 	requires com.fasterxml.jackson.databind;
 	requires java.activation;
+
+	provides IGuiceSiteBinder with AngularFileUploadBinderGuiceSiteBinder;
 }
