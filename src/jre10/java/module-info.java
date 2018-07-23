@@ -1,5 +1,15 @@
+import com.jwebmp.core.base.angular.services.IAngularConfiguration;
+import com.jwebmp.core.base.angular.services.IAngularController;
+import com.jwebmp.core.base.angular.services.IAngularDirective;
+import com.jwebmp.core.base.angular.services.IAngularModule;
+import com.jwebmp.core.services.IPageConfigurator;
 import com.jwebmp.guicedservlets.services.IGuiceSiteBinder;
 import com.jwebmp.plugins.angularfileupload.AngularFileUploadBinderGuiceSiteBinder;
+import com.jwebmp.plugins.angularfileupload.AngularFileUploadDataBinderConfigurationBase;
+import com.jwebmp.plugins.angularfileupload.AngularFileUploadPageConfigurator;
+import com.jwebmp.plugins.angularfileupload.angular.AngularBlueImpFileUploadModule;
+import com.jwebmp.plugins.angularfileupload.angular.AngularFileUploadDirective;
+import com.jwebmp.plugins.angularfileupload.angular.BlueImpFileDestroyController;
 
 module com.jwebmp.plugins.angularfileupload {
 	exports com.jwebmp.plugins.angularfileupload;
@@ -26,4 +36,10 @@ module com.jwebmp.plugins.angularfileupload {
 	requires java.activation;
 
 	provides IGuiceSiteBinder with AngularFileUploadBinderGuiceSiteBinder;
+	provides IPageConfigurator with AngularFileUploadPageConfigurator;
+	provides IAngularModule with AngularBlueImpFileUploadModule;
+	provides IAngularController with BlueImpFileDestroyController;
+	provides IAngularConfiguration with AngularFileUploadDataBinderConfigurationBase;
+	provides IAngularDirective with AngularFileUploadDirective;
+
 }

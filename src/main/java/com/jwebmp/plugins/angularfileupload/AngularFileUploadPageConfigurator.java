@@ -19,7 +19,6 @@ package com.jwebmp.plugins.angularfileupload;
 
 import com.google.inject.Singleton;
 import com.jwebmp.core.Page;
-import com.jwebmp.core.PageConfigurator;
 import com.jwebmp.core.base.angular.AngularPageConfigurator;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.H3;
@@ -27,8 +26,7 @@ import com.jwebmp.core.base.html.Link;
 import com.jwebmp.core.base.html.List;
 import com.jwebmp.core.plugins.PluginInformation;
 import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
-import com.jwebmp.plugins.angularfileupload.angular.AngularBlueImpFileUploadModule;
-import com.jwebmp.plugins.angularfileupload.angular.BlueImpFileDestroyController;
+import com.jwebmp.core.services.IPageConfigurator;
 import com.jwebmp.plugins.angularfileupload.options.BlueImpFileUploadDefaultOptions;
 
 import javax.validation.constraints.NotNull;
@@ -55,7 +53,7 @@ import javax.validation.constraints.NotNull;
 		pluginLastUpdatedDate = "2017/09/18")
 @Singleton
 public class AngularFileUploadPageConfigurator
-		extends PageConfigurator
+		implements IPageConfigurator
 {
 	private static BlueImpFileUploadDefaultOptions defaultOptions;
 	private static boolean renderJqueryUI;
@@ -234,18 +232,6 @@ public class AngularFileUploadPageConfigurator
 	{
 		JQueryPageConfigurator.setRequired(true);
 		AngularPageConfigurator.setRequired(true);
-
-		page.getAngular()
-		    .getAngularModules()
-		    .add(new AngularBlueImpFileUploadModule());
-
-		page.getAngular()
-		    .getAngularControllers()
-		    .add(new BlueImpFileDestroyController());
-
-		page.getAngular()
-		    .getAngularConfigurations()
-		    .add(new AngularFileUploadDataBinderConfigurationBase());
 	}
 
 	/**

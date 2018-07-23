@@ -18,6 +18,7 @@
 package com.jwebmp.plugins.angularfileupload.angular;
 
 import com.jwebmp.core.base.angular.modules.AngularModuleBase;
+import com.jwebmp.core.base.angular.services.IAngularModule;
 
 /**
  * The module getting loaded into angular
@@ -27,6 +28,7 @@ import com.jwebmp.core.base.angular.modules.AngularModuleBase;
  */
 public class AngularBlueImpFileUploadModule
 		extends AngularModuleBase
+		implements IAngularModule<AngularBlueImpFileUploadModule>
 {
 
 	private static final long serialVersionUID = 1L;
