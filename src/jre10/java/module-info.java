@@ -42,4 +42,11 @@ module com.jwebmp.plugins.angularfileupload {
 	provides IAngularConfiguration with AngularFileUploadDataBinderConfigurationBase;
 	provides IAngularDirective with AngularFileUploadDirective;
 
+	opens com.jwebmp.plugins.angularfileupload to com.fasterxml.jackson.databind,com.jwebmp.core;
+	opens com.jwebmp.plugins.angularfileupload.options to com.fasterxml.jackson.databind,com.jwebmp.core;
+	opens com.jwebmp.plugins.angularfileupload.interfaces to com.fasterxml.jackson.databind,com.jwebmp.core;
+	opens com.jwebmp.plugins.angularfileupload.angular to com.fasterxml.jackson.databind,com.jwebmp.core;
+	opens com.jwebmp.plugins.angularfileupload.parts to com.fasterxml.jackson.databind,com.jwebmp.core;
+	opens com.jwebmp.plugins.angularfileupload.servlets to com.fasterxml.jackson.databind,com.jwebmp.core;
+
 }
