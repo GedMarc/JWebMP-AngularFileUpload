@@ -61,6 +61,7 @@
             <artifactId>jwebmp-jquery-ui</artifactId>
             <version>${project.version}</version>
             <classifier>${jwebmp.runtime.classifier}</classifier>
+            <optional>true</optional>
             <type>jar</type>
         </dependency>
         <dependency>
@@ -68,6 +69,7 @@
             <artifactId>jwebmp-bootstrap4</artifactId>
             <version>${project.version}</version>
             <classifier>${jwebmp.runtime.classifier}</classifier>
+            <optional>true</optional>
             <type>jar</type>
         </dependency>
 
