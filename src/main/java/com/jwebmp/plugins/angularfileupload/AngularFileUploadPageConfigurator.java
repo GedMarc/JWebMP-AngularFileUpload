@@ -105,6 +105,7 @@ public class AngularFileUploadPageConfigurator
 		AngularFileUploadPageConfigurator.renderJqueryUI = renderJqueryUI;
 	}
 
+	@NotNull
 	@Override
 	@SuppressWarnings("unchecked")
 	public Page configure(Page page)
