@@ -1,9 +1,10 @@
 package com.jwebmp.plugins.angularfileupload.angular;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jwebmp.core.Page;
 import com.jwebmp.core.base.html.inputs.InputTextType;
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
+import com.jwebmp.guicedinjection.GuiceContext;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -36,15 +37,20 @@ class AngularFileUploadModuleTest
 		           "    \"name\": \"gitignore_global.txt\",\n" +
 		           "    \"size\": 236,\n" +
 		           "    \"type\": \"text/plain\",\n" +
-		           "    \"data\": \"data:text/plain;base64,DQojaWdub3JlIHRodW1ibmFpbHMgY3JlYXRlZCBieSB3aW5kb3dz…xoDQoqLmJhaw0KKi5jYWNoZQ0KKi5pbGsNCioubG9nDQoqLmRsbA0KKi5saWINCiouc2JyDQo=\"\n" +
+		           "    \"data\": \"data:text/plain;base64,DQjaWdub3JlIHRodW1ibmFpbHMgY3JlYXRlZCBieSB3aW5kb3dz…xoDQoqLmJhaw0KKi5jYWNoZQ0KKi5pbGsNCioubG9nDQoqLmRsbA0KKi5saWINCiouc2JyDQo=\"\n" +
 		           "}]";
-		ObjectMapper mapper = new ObjectMapper();
-		mapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
-		mapper.readValue(new StringReader(jsonTest), AngularFiles.class);
 
-		AngularFiles files = new AngularFiles<>().From(jsonTest, AngularFiles.class);
+		System.out.println(jsonTest);
+		ObjectMapper mapper = GuiceContext.get(ObjectMapper.class);
+		AngularFiles files = mapper.readValue(new StringReader(jsonTest), AngularFiles.class);
 
 		System.out.println(files);
+
+		Page<?> page = new Page();
+		page.add("testme")
+		    .getOptions()
+		    .setDynamicRender(false);
+		System.out.println(page.toString(0));
 
 	}
 

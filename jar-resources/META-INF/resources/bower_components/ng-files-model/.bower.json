@@ -1,0 +1,14 @@
+{
+  "name": "ng-files-model",
+  "homepage": "https://github.com/resultsystems/ng-files-model",
+  "version": "1.0.4",
+  "_release": "1.0.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.0.4",
+    "commit": "aeabbdd5414039bd4c8f8427ffe2325b7ea06d12"
+  },
+  "_source": "https://github.com/resultsystems/ng-files-model.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/resultsystems/ng-files-model.git"
+}
