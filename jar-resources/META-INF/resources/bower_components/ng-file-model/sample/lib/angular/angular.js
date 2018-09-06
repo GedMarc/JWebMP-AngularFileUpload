@@ -8502,7 +8502,7 @@
                                     var oldClasses = beforeTemplateLinkNode.className;
 
                                     if (!(previousCompileContext.hasElementTranscludeDirective &&
-                                            origAsyncDirective.replace)) {
+                                        origAsyncDirective.replace)) {
                                         // it was cloned therefore we have to clone as well.
                                         linkNode = jqLiteClone(compileNode);
                                     }
@@ -8953,17 +8953,21 @@
      * Closure compiler type information
      */
 
-    function nodesetLinkingFn(/* angular.Scope */ scope,
-                              /* NodeList */ nodeList,
-                              /* Element */ rootElement,
-                              /* function(Function) */ boundTranscludeFn) {
+    function nodesetLinkingFn(
+        /* angular.Scope */ scope,
+        /* NodeList */ nodeList,
+        /* Element */ rootElement,
+        /* function(Function) */ boundTranscludeFn
+    ) {
     }
 
-    function directiveLinkingFn(/* nodesetLinkingFn */ nodesetLinkingFn,
-                                /* angular.Scope */ scope,
-                                /* Node */ node,
-                                /* Element */ rootElement,
-                                /* function(Function) */ boundTranscludeFn) {
+    function directiveLinkingFn(
+        /* nodesetLinkingFn */ nodesetLinkingFn,
+        /* angular.Scope */ scope,
+        /* Node */ node,
+        /* Element */ rootElement,
+        /* function(Function) */ boundTranscludeFn
+    ) {
     }
 
     function tokenDifference(str1, str2) {
@@ -11182,7 +11186,6 @@
       *               }
       *             }, 100);
       *           };
-
       *
       *           $scope.stopFight = function() {
       *             if (angular.isDefined(stop)) {
@@ -11190,13 +11193,11 @@
       *               stop = undefined;
       *             }
       *           };
-
       *
       *           $scope.resetFight = function() {
       *             $scope.blood_1 = 100;
       *             $scope.blood_2 = 120;
       *           };
-
       *
       *           $scope.$on('$destroy', function() {
       *             // Make sure that the interval is destroyed too
@@ -12530,17 +12531,17 @@
                     'Referencing Function in Angular expressions is disallowed! Expression: {0}',
                     fullExpression);
             } else if (// isWindow(obj)
-            obj.window === obj) {
+                obj.window === obj) {
                 throw $parseMinErr('isecwindow',
                     'Referencing the Window in Angular expressions is disallowed! Expression: {0}',
                     fullExpression);
             } else if (// isElement(obj)
-            obj.children && (obj.nodeName || (obj.prop && obj.attr && obj.find))) {
+                obj.children && (obj.nodeName || (obj.prop && obj.attr && obj.find))) {
                 throw $parseMinErr('isecdom',
                     'Referencing DOM nodes in Angular expressions is disallowed! Expression: {0}',
                     fullExpression);
             } else if (// block Object so that we can't get hold of dangerous Object.* methods
-            obj === Object) {
+                obj === Object) {
                 throw $parseMinErr('isecobj',
                     'Referencing Object in Angular expressions is disallowed! Expression: {0}',
                     fullExpression);
@@ -15806,7 +15807,7 @@
                                     // yes, this code is a bit crazy, but it works and we have tests to prove it!
                                     // this piece should be kept in sync with the traversal in $broadcast
                                     if (!(next = ((current.$$watchersCount && current.$$childHead) ||
-                                            (current !== target && current.$$nextSibling)))) {
+                                        (current !== target && current.$$nextSibling)))) {
                                         while (current !== target && !(next = current.$$nextSibling)) {
                                             current = current.$parent;
                                         }
@@ -16279,7 +16280,7 @@
                             // this piece should be kept in sync with the traversal in $digest
                             // (though it differs due to having the extra check for $$listenerCount)
                             if (!(next = ((current.$$listenerCount[name] && current.$$childHead) ||
-                                    (current !== target && current.$$nextSibling)))) {
+                                (current !== target && current.$$nextSibling)))) {
                                 while (current !== target && !(next = current.$$nextSibling)) {
                                     current = current.$parent;
                                 }
@@ -17157,7 +17158,8 @@
    * sce.js and sceSpecs.js would need to be aware of this detail.
    */
 
-        this.$get = ['$parse', '$sceDelegate', function ($parse, $sceDelegate) {
+        this.$get = ['$parse', '$sceDelegate', function (
+            $parse, $sceDelegate) {
             // Prereq: Ensure that we're not running in IE<11 quirks mode.  In that mode, IE < 11 allow
             // the "expression(javascript expression)" syntax which is insecure.
             if (enabled && msie < 8) {
@@ -23139,18 +23141,15 @@
  *     $scope.greet = function() {
  *       alert($scope.name);
  *     };
-
  *
  *     $scope.addContact = function() {
  *       $scope.contacts.push({type:'email', value:'yourname@example.org'});
  *     };
-
  *
  *     $scope.removeContact = function(contactToRemove) {
  *       var index = $scope.contacts.indexOf(contactToRemove);
  *       $scope.contacts.splice(index, 1);
  *     };
-
  *
  *     $scope.clearContact = function(contact) {
  *       contact.type = 'phone';
@@ -25744,6 +25743,7 @@
     };
 
 
+
 // helper methods
     function addSetValidityMethod(context) {
         var ctrl = context.ctrl,
@@ -27214,7 +27214,7 @@
                 var keyIdentifier = match[2];
 
                 if (aliasAs && (!/^[$a-zA-Z_][$a-zA-Z0-9_]*$/.test(aliasAs) ||
-                        /^(null|undefined|this|\$index|\$first|\$middle|\$last|\$even|\$odd|\$parent|\$root|\$id)$/.test(aliasAs))) {
+                    /^(null|undefined|this|\$index|\$first|\$middle|\$last|\$even|\$odd|\$parent|\$root|\$id)$/.test(aliasAs))) {
                     throw ngRepeatMinErr('badident', "alias '{0}' is invalid --- must be a valid JS identifier which is not a reserved name.",
                         aliasAs);
                 }

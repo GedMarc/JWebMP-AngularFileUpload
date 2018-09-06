@@ -1,5 +1,6 @@
-import com.jwebmp.core.base.angular.services.IAngularDirective;
-import com.jwebmp.plugins.angularfileupload.angular.AngularFileUploadDirective;
+import com.jwebmp.core.base.angular.services.IAngularModule;
+import com.jwebmp.plugins.angularfileupload.angular.AngularFileUploadModule;
+import com.jwebmp.plugins.angularfileupload.angular.AngularFilesUploadModule;
 
 module com.jwebmp.plugins.angularfileupload {
 
@@ -19,7 +20,7 @@ module com.jwebmp.plugins.angularfileupload {
 	requires com.fasterxml.jackson.databind;
 	requires java.activation;
 
-	provides IAngularDirective with AngularFileUploadDirective;
+	provides IAngularModule with AngularFileUploadModule, AngularFilesUploadModule;
 
 	opens com.jwebmp.plugins.angularfileupload.angular to com.fasterxml.jackson.databind, com.jwebmp.core;
 

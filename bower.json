@@ -17,6 +17,7 @@
     "tests"
   ],
   "dependencies": {
-    "ng-file-model": "*"
+    "ng-file-model": "*",
+    "ng-files-model": "https://github.com/resultsystems/ng-files-model.git#*"
   }
 }
