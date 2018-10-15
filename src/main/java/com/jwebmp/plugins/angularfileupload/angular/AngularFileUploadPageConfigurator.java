@@ -7,7 +7,7 @@ import com.jwebmp.core.services.IPageConfigurator;
 import javax.validation.constraints.NotNull;
 
 public class AngularFileUploadPageConfigurator
-		implements IPageConfigurator
+		implements IPageConfigurator<AngularFileUploadPageConfigurator>
 {
 	private static final JavascriptReference fileUploadReference = new JavascriptReference("AngularFileUploadReference", 1.0,
 	                                                                                       "bower_components/ng-file-model/ng-file-model.min.js");
