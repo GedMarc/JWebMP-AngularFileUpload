@@ -34,7 +34,7 @@ public class AngularFilesUploadModule
 	/**
 	 * Field serialVersionUID
 	 */
-	private static final long serialVersionUID = 1L;
+
 
 	/**
 	 * An actual function
