@@ -13,7 +13,7 @@ public class AngularFileUploadPageConfigurator
 	                                                                                       "bower_components/ng-file-model/ng-file-model.min.js");
 	private static final JavascriptReference fileUploadsReference = new JavascriptReference("AngularFileUploadsReference", 1.0,
 	                                                                                        "bower_components/ng-files-model/ng-files-model.min.js");
-	private static boolean enabled;
+	private static boolean enabled = true;
 
 	public static boolean isEnabled()
 	{
@@ -25,6 +25,14 @@ public class AngularFileUploadPageConfigurator
 		AngularFileUploadPageConfigurator.enabled = enabled;
 	}
 
+	@Override
+	public @NotNull Page<?> configure(Page<?> page)
+	{
+		page.addJavaScriptReference(getFileUploadReference());
+		page.addJavaScriptReference(getFileUploadsReference());
+		return page;
+	}
+
 	public static JavascriptReference getFileUploadReference()
 	{
 		return fileUploadReference;
@@ -33,14 +41,6 @@ public class AngularFileUploadPageConfigurator
 	public static JavascriptReference getFileUploadsReference()
 	{
 		return fileUploadsReference;
-	}
-
-	@Override
-	public @NotNull Page<?> configure(Page<?> page)
-	{
-		page.addJavaScriptReference(fileUploadReference);
-		page.addJavaScriptReference(fileUploadsReference);
-		return page;
 	}
 
 	@Override
