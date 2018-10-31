@@ -30,8 +30,6 @@ public class AngularFileUploadModule
 		extends AngularModuleBase
 		implements IAngularModule<AngularFileUploadModule>
 {
-
-
 	/**
 	 * An actual function
 	 */
