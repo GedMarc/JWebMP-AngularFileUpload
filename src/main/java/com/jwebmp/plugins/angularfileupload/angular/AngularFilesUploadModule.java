@@ -31,14 +31,6 @@ public class AngularFilesUploadModule
 		implements IAngularModule<AngularFilesUploadModule>
 {
 
-	/**
-	 * Field serialVersionUID
-	 */
-
-
-	/**
-	 * An actual function
-	 */
 	/*
 	 * Constructs a new Angular File Upload Binding Directive
 	 */
@@ -85,5 +77,16 @@ public class AngularFilesUploadModule
 	public String renderFunction()
 	{
 		return null;
+	}
+
+	/**
+	 * If this page configurator is enabled
+	 *
+	 * @return if the configuration must run
+	 */
+	@Override
+	public boolean enabled()
+	{
+		return AngularFileUploadPageConfigurator.isEnabled();
 	}
 }
