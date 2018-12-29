@@ -18,7 +18,6 @@
 package com.jwebmp.plugins.angularfileupload.angular;
 
 import com.jwebmp.core.base.angular.modules.AngularModuleBase;
-import com.jwebmp.core.base.angular.services.IAngularModule;
 
 /**
  * The Angular Auto Focus Directive that is applied
@@ -27,8 +26,7 @@ import com.jwebmp.core.base.angular.services.IAngularModule;
  * @since 30 May 2017
  */
 public class AngularFileUploadModule
-		extends AngularModuleBase
-		implements IAngularModule<AngularFileUploadModule>
+		extends AngularModuleBase<AngularFileUploadModule>
 {
 	/**
 	 * An actual function

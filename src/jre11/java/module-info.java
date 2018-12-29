@@ -24,6 +24,7 @@ module com.jwebmp.plugins.angularfileupload {
 	requires com.fasterxml.jackson.annotation;
 	requires com.fasterxml.jackson.databind;
 	requires java.activation;
+	requires com.jwebmp.core.angularjs;
 
 	provides IAngularModule with AngularFileUploadModule, AngularFilesUploadModule;
 	provides IPageConfigurator with AngularFileUploadPageConfigurator;
