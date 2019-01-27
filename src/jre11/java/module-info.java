@@ -1,12 +1,3 @@
-import com.jwebmp.core.base.angular.services.IAngularModule;
-import com.jwebmp.core.services.IPageConfigurator;
-import com.jwebmp.guicedinjection.interfaces.IGuiceScanJarExclusions;
-import com.jwebmp.guicedinjection.interfaces.IGuiceScanModuleExclusions;
-import com.jwebmp.plugins.angularfileupload.angular.AngularFileUploadModule;
-import com.jwebmp.plugins.angularfileupload.angular.AngularFileUploadPageConfigurator;
-import com.jwebmp.plugins.angularfileupload.angular.AngularFilesUploadModule;
-import com.jwebmp.plugins.angularfileupload.implementations.AngularFileUploadExclusionsModule;
-
 module com.jwebmp.plugins.angularfileupload {
 
 	exports com.jwebmp.plugins.angularfileupload.angular;
@@ -26,11 +17,11 @@ module com.jwebmp.plugins.angularfileupload {
 	requires java.activation;
 	requires com.jwebmp.core.angularjs;
 
-	provides IAngularModule with AngularFileUploadModule, AngularFilesUploadModule;
-	provides IPageConfigurator with AngularFileUploadPageConfigurator;
+	provides com.jwebmp.core.base.angular.services.IAngularModule with com.jwebmp.plugins.angularfileupload.angular.AngularFileUploadModule, com.jwebmp.plugins.angularfileupload.angular.AngularFilesUploadModule;
+	provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.plugins.angularfileupload.angular.AngularFileUploadPageConfigurator;
 
-	provides IGuiceScanModuleExclusions with AngularFileUploadExclusionsModule;
-	provides IGuiceScanJarExclusions with AngularFileUploadExclusionsModule;
+	provides com.jwebmp.guicedinjection.interfaces.IGuiceScanModuleExclusions with com.jwebmp.plugins.angularfileupload.implementations.AngularFileUploadExclusionsModule;
+	provides com.jwebmp.guicedinjection.interfaces.IGuiceScanJarExclusions with com.jwebmp.plugins.angularfileupload.implementations.AngularFileUploadExclusionsModule;
 
 	opens com.jwebmp.plugins.angularfileupload.angular to com.fasterxml.jackson.databind, com.jwebmp.core;
 
