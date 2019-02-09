@@ -28,9 +28,18 @@ public class AngularFileUploadPageConfigurator
 	@Override
 	public @NotNull Page<?> configure(Page<?> page)
 	{
-		page.addJavaScriptReference(getFileUploadReference());
-		page.addJavaScriptReference(getFileUploadsReference());
+		if (enabled())
+		{
+			page.addJavaScriptReference(getFileUploadReference());
+			page.addJavaScriptReference(getFileUploadsReference());
+		}
 		return page;
+	}
+
+	@Override
+	public boolean enabled()
+	{
+		return enabled;
 	}
 
 	public static JavascriptReference getFileUploadReference()
@@ -41,11 +50,5 @@ public class AngularFileUploadPageConfigurator
 	public static JavascriptReference getFileUploadsReference()
 	{
 		return fileUploadsReference;
-	}
-
-	@Override
-	public boolean enabled()
-	{
-		return enabled;
 	}
 }
