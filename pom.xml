@@ -3,12 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.jwebmp</groupId>
-        <artifactId>jwebmp-builder</artifactId>
+        <groupId>com.jwebmp.plugins.angular</groupId>
+        <artifactId>jwebmp-plugins-angular-parent</artifactId>
         <version>0.0.0_0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.jwebmp</groupId>
     <artifactId>jwebmp-angular-file-upload</artifactId>
     <packaging>jar</packaging>
 
@@ -39,36 +38,21 @@
         </dependency>
 
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>com.jwebmp.core</groupId>
             <artifactId>jwebmp-core</artifactId>
-            <version>${project.version}</version>
-            <classifier>${jwebmp.runtime.classifier}</classifier>
-            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>jwebmp-angularjs</artifactId>
-            <version>${project.version}</version>
-            <type>jar</type>
-            <classifier>${jwebmp.runtime.classifier}</classifier>
-            <!--<optional>true</optional>-->
+            <groupId>com.jwebmp.plugins.angular</groupId>
+            <artifactId>jwebmp-plugins-angularjs</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>com.jwebmp.plugins.jquery</groupId>
             <artifactId>jwebmp-jquery-ui</artifactId>
-            <version>${project.version}</version>
-            <classifier>${jwebmp.runtime.classifier}</classifier>
-            <!--<optional>true</optional>-->
-            <type>jar</type>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>com.jwebmp.plugins.bootstrap</groupId>
             <artifactId>jwebmp-bootstrap4</artifactId>
-            <version>${project.version}</version>
-            <classifier>${jwebmp.runtime.classifier}</classifier>
-            <!--<optional>true</optional>-->
-            <type>jar</type>
         </dependency>
     </dependencies>
 
