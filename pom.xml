@@ -52,7 +52,7 @@
         </dependency>
         <dependency>
             <groupId>com.jwebmp.plugins.bootstrap</groupId>
-            <artifactId>jwebmp-bootstrap4</artifactId>
+            <artifactId>jwebmp-bootstrap</artifactId>
         </dependency>
     </dependencies>
 
