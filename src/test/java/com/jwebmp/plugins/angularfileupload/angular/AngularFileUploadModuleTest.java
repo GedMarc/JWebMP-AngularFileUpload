@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jwebmp.core.Page;
 import com.jwebmp.core.base.html.inputs.InputTextType;
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
-import com.jwebmp.guicedinjection.GuiceContext;
+import com.guicedee.guicedinjection.GuiceContext;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
