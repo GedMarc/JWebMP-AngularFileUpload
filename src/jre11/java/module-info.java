@@ -6,7 +6,7 @@ module com.jwebmp.plugins.angularfileupload {
 	requires com.guicedee.logmaster;
 	requires com.guicedee.guicedservlets;
 	requires java.logging;
-	requires javax.servlet.api;
+	requires java.servlet;
 	requires com.google.guice;
 
 	requires com.guicedee.guicedinjection;
