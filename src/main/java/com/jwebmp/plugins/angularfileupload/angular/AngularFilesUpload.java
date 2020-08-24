@@ -5,6 +5,7 @@ import com.jwebmp.core.base.html.inputs.InputFileType;
 
 import javax.validation.constraints.NotNull;
 
+import static com.guicedee.guicedinjection.json.StaticStrings.STRING_EMPTY;
 import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
@@ -41,7 +42,7 @@ public class AngularFilesUpload<J extends AngularFilesUpload<J>>
 		addAttribute("ng-file-model", STRING_EMPTY);
 		addAttribute("model", variableName);
 
-		addAttribute(InputFileTypeAttributes.Multiple, "mulplite");
+		addAttribute(InputFileTypeAttributes.Multiple, "multiple");
 		return (J) this;
 	}
 }
