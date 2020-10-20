@@ -16,7 +16,7 @@
     "reader",
     "angular-file",
     "ng-file-model",
-    "angular-file-model"
+	"angular-file-model"
   ],
   "license": "MIT",
   "ignore": [
