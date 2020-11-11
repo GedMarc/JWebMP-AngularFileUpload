@@ -2,7 +2,7 @@ package com.jwebmp.plugins.angularfileupload.angular;
 
 import com.jwebmp.core.base.html.inputs.InputFileType;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * A file input component that allows the binding for base 64 into json objects

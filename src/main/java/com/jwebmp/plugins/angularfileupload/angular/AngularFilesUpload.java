@@ -3,7 +3,7 @@ package com.jwebmp.plugins.angularfileupload.angular;
 import com.jwebmp.core.base.html.attributes.InputFileTypeAttributes;
 import com.jwebmp.core.base.html.inputs.InputFileType;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 import static com.guicedee.guicedinjection.json.StaticStrings.STRING_EMPTY;
 import static com.jwebmp.core.utilities.StaticStrings.*;
