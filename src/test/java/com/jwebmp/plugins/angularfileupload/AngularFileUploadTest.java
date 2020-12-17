@@ -9,7 +9,7 @@ public class AngularFileUploadTest
 	@Test
 	public void testPage()
 	{
-		Page p = new Page();
+		Page<?> p = new Page();
 		p.getOptions()
 		 .setDynamicRender(false);
 		System.out.println(p.toString(0));
