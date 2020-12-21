@@ -8,7 +8,7 @@ import com.jwebmp.core.services.IPageConfigurator;
 
 import jakarta.validation.constraints.NotNull;
 
-@PluginInformation(pluginName = "Angular File Upload",
+@PluginInformation(pluginName = "File Upload",
 		pluginDescription = "Angular File Model is a directive for angularjs to help you make a model for input file and you can send it to sever for next step.",
 		pluginUniqueName = "angular",
 		pluginVersion = "1.0.4",
