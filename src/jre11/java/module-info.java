@@ -6,7 +6,7 @@ module com.jwebmp.plugins.angularfileupload {
 
 	requires com.jwebmp.core;
 	requires com.guicedee.guicedservlets;
-	requires java.servlet;
+	requires jakarta.servlet;
 
 	requires jakarta.validation;
 	requires com.jwebmp.core.angularjs;
