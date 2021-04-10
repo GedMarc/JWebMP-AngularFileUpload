@@ -28,7 +28,7 @@ class AngularFileUploadModuleTest
 		                  "    \"data\": \"data:text/plain;base64,DQojaWdub3JlIHRodW1ibmFpbHMgY3JlYXRlZCBieSB3aW5kb3dz…xoDQoqLmJhaw0KKi5jYWNoZQ0KKi5pbGsNCioubG9nDQoqLmRsbA0KKi5saWINCiouc2JyDQo=\"\n" +
 		                  "}";
 
-		AngularFile file = new AngularFile<>().From(jsonTest, AngularFile.class);
+		AngularFile file = com.guicedee.guicedinjection.representations.IJsonRepresentation.From(jsonTest, AngularFile.class);
 		System.out.println(file);
 
 		jsonTest = "[{\n" +
