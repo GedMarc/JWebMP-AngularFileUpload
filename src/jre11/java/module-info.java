@@ -9,7 +9,7 @@ module com.jwebmp.plugins.angularfileupload {
 	requires jakarta.servlet;
 
 	requires jakarta.validation;
-	requires com.jwebmp.core.angularjs;
+	requires com.jwebmp.core.angular;
 
 	provides com.jwebmp.core.base.angular.services.IAngularModule with com.jwebmp.plugins.angularfileupload.angular.AngularFileUploadModule, com.jwebmp.plugins.angularfileupload.angular.AngularFilesUploadModule;
 	provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.plugins.angularfileupload.angular.AngularFileUploadPageConfigurator;
