@@ -5,7 +5,7 @@ import com.jwebmp.core.base.html.inputs.InputFileType;
 
 import jakarta.validation.constraints.NotNull;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.STRING_EMPTY;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.STRING_EMPTY;
 import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
